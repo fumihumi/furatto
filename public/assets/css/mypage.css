@@ -1,0 +1,26 @@
+/* .mypage {
+  /* background: red; */
+/*   ul li{
+  border: solid 2px skyblue;
+  border-radius: 5px;
+  padding: 0.5em 1em 0.5em 2.3em;
+  position: relative;
+}
+
+ul li {
+  line-height: 1.5;
+  padding: 0.5em 0;
+  list-style-type: none!important;
+}
+
+ul li:before {/*疑似要素*/
+/*   font-family: "Font Awesome 5 Free";
+  content: "\f138";/*アイコンの種類*/
+/*   position: absolute;
+  l/* eft : 1em;/*左端からのアイコンまでの距離*/
+  /* color: skyblue;/*アイコン色*/
+/* }ul, ol{
+  padding: 0;
+}
+
+}
