@@ -3,9 +3,9 @@
 namespace Model\Dao;
 
 /**
- * Class User
+ * Class EventUser
  *
- * Userテーブルを扱う Classです
+ * EventUserテーブルを扱う Classです
  * DAO.phpに用意したCRUD関数以外を実装するときに、記載をします。
  *
  * @copyright Ceres inc.
@@ -13,4 +13,8 @@ namespace Model\Dao;
  * @since 2018/08/28
  * @package Model\Dao
  */
-class Event extends Dao{}
+class EventUser extends Dao
+{
+
+
+}
