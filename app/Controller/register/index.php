@@ -18,7 +18,7 @@ $app->get('/register/', function (Request $request, Response $response) {
 
 // 会員登録処理コントローラ
 $app->post('/register/', function (Request $request, Response $response) {
-
+  
     //POSTされた内容を取得します
     $data = $request->getParsedBody();
 
