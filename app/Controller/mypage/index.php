@@ -13,3 +13,12 @@ $app->get('/mypage/', function (Request $request, Response $response) {
 
     return $this->view->render($response, 'mypage/index.twig', $data);
 });
+
+$app->get('/user/{id}', function (Request $request, Response $response, $args) {
+
+    $user = new User($this->db);
+
+    $data = $user->select(array("id" => $args));
+
+    return $this->view->render($response, 'mypage/index.twig', $data);
+});
