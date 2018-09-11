@@ -38,20 +38,19 @@
                             </div>
                             <div class="form-group">
                                 <label for="password" class="control-label"><span class="btn-xs round btn-danger">必須</span> ニックネーム</label>
-                                <input type="text" class="form-control" id="name" name="name" value="{{ name }}" required title="Please enter your name" placeholder="Toru">
+                                <input type="text" class="form-control" id="name" name="name" value="{{ name }}" required title="Please enter your name" placeholder="Name">
                             </div>
                             <div class="form-group">
-                                <label for="password" class="control-label"><span class="btn-xs round btn-danger">必須</span> 郵便番号</label>
-                                <input type="text" class="form-control " id="zipcode" name="zipcode" value="{{ zipcode }}" style="width: 30%" required title="Please enter your zipcode" placeholder="110-0011">
+                                <label for="password" class="control-label"> TwitterId</label>
+                                <input type="text" class="form-control " id="twitterId" name="twitter_id" value="{{ twitter_id}}" title="Please enter your twitterId" placeholder="ID">
                             </div>
                             <div class="form-group">
-                                <label for="password" class="control-label"><span class="btn-xs round btn-danger">必須</span> 住所</label>
-                                <input type="text" class="form-control" id="address" name="address" value="{{ address }}" required title="Please enter your address" placeholder="東京都千代田区霞が関２丁目１−１">
+                                <label for="password" class="control-label"> GitHubId</label>
+                                <input type="text" class="form-control" id="githubId" name="github_id" value="{{ github_id }}" title="Please enter your githubId" placeholder="ID">
                             </div>
                             <div class="form-group">
-                                <label for="password" class="control-label"><span class="btn-xs round btn-danger">必須</span> 電話番号</label>
-                                <input type="tel" class="form-control" id="tel" name="tel" value="{{ tel }}" required title="Please enter your tel no" placeholder="03-1234-5678">
-                            </div>
+                                <label for="password" class="control-label"> プロフィール</label>
+                                <textarea type="text" class="form-control" id="profile" name="profile" value="{{ profile }}" title="Please enter your profile" placeholder="自己紹介"></textarea>
                             <div class="form-group">
                                 <label for="password" class="control-label">利用規約</label>
                                 <textarea class="form-control" rows="10" readonly>
