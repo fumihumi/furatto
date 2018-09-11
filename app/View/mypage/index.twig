@@ -12,19 +12,21 @@
 {% block page_content %}
     <div class="page-header text-center ">
         <link href="/assets/css/mypage.css" rel="stylesheet">
-        <h1>ふらっと開催！オンライン勉強会</h1>
+        <div class="page-header text-center">
+            <title>ふらっと開催！オンライン勉強会</title>
+            <h1 class="main">ふらっと開催！オンライン勉強会</h1>
     </div>
 
     <div class="panel panel-default">
 <div class="panel-heading">
-    <h3 class="panel-title">ユーザー情報</h3>
-  </div>
+  <h2 class="head-name">ユーザー情報</h2>
+</div>
   <div class="panel-body">
     <div class="container">
       <div class="box">
           <div class="row">
-              ユーザー情報
-              <ul>
+
+              <ul class="user_info">
 
                 {% if name == null %}                　
                 {% else %}
@@ -43,12 +45,12 @@
 
                 {% if twitter_id  == null %}
                 {% else %}
-                　　<li>twitter ID：<a href="https://twitter.com/{{twitter_id}}" target="_blank">{{twitter_id}}</a></li>
+                　　<li><i class="fa fa-twitter-square"></i>：<a href="https://twitter.com/{{twitter_id}}" target="_blank">{{twitter_id}}</a></li>
                 {% endif %}
 
                 {% if github_id == null %}
                 {% else %}
-              　   <li> github ID：<a href="https://github.com/{{github_id}}" target="_blank">{{github_id}} </a></li>
+              　   <li> <i class="fa fa-github"></i>：<a href="https://github.com/{{github_id}}" target="_blank">{{github_id}} </a></li>
                 {% endif %}
 
                 {% if qiita_id  is defined %}
@@ -67,4 +69,4 @@
 {% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}
-{% block footer_scripts_add %}aa{% endblock %}
+{% block footer_scripts_add %}{% endblock %}
