@@ -1,0 +1,107 @@
+// 全体の共通設定
+$main-color: #FE6EAB;
+$gradation-purple-color: #D9D7FC;
+$text-color: #615561;
+$minor-text-color: #c7c7c7;
+$white-text-color: #F4F4F4;
+$facebook-color: #3b5998;
+$critical-color: #fb2943;
+$link-main-color: #8B79DB;
+$sub-color: #f0efef;
+$fashion: #FE6EAB;
+$beauty: #BC6EFE;
+$black: #31282C;
+
+$header-height: 67px;
+$header-ribbon-color: #FFCE2C;
+$footer-height: 37px;
+
+$base-photo-url: 'https://s3-ap-northeast-1.amazonaws.com/f-college-images';
+
+body {
+    color: $text-color;
+    font-family: "Shree Devanagari 714", "Optima", "Nunito", "Yu Gothic", "Hiragino Kaku Gothic Pro", "Meiryo", "sans-serif";
+    font-weight: 400;
+    font-size:62.5%; /* 10px */
+    background: linear-gradient($main-color,$gradation-purple-color);
+}
+
+h1 {
+    font-weight: 800;
+}
+
+h2 {
+    font-weight: 800;
+}
+h3, h4 {
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, p, span, div {
+    margin: 0;
+    color: inherit;
+    letter-spacing: 0.9px;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.4rem;
+}
+
+i {
+    color: inherit;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    font-size: 1.6em; /* 16px */
+}
+
+p  { font-size: 1.6em; } /* 16px */
+
+$component-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+$text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
+
+.btn-maincolor {
+    border: none;
+    color: white;
+    background-color: $main-color;
+    &:disabled {
+        background-color: $minor-text-color;
+    }
+}
+
+.btn-facebook {
+    background-color: $facebook-color;
+    color: white;
+    border: none;
+}
+
+.btn-critical {
+    border: none;
+    color: white;
+    background-color: $critical-color;
+}
+
+.btn-shadow {
+    box-shadow: $component-shadow;
+}
+
+.btn-default {
+    color: $text-color;
+}
