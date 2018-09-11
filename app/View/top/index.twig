@@ -10,25 +10,28 @@
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
+  <link href="/assets/css/top/top.css" rel="stylesheet">
     <div class="page-header text-center">
-        <h1>ふらっと開催！オンライン勉強会</h1>
+        <h1 class="btn-primary">ふらっと開催！オンライン勉強会</h1>
     </div>
     <div class="container">
         <div class="box">
             <div class="row">
-                <h2>エンジニア向けオンライン勉強会</h2>
+                <h3 class="btn-info">エンジニア向けオンライン勉強会</h3>
+                <p　class="btn;active"></p>
             </div>
-            <h3>開催中</h3>
-            <ul>
-
+            <h2>開催中</h2>
+            <ul class="btn-default">
+              <!-- 開催中イベントの列挙 -->
               {% for event in events %}
                 <li><a href="/event/{{event.id}}">「{{event.title}}」<br>
-                  {{event.detail | slice(0, 39)}}…</a><br>
+                  <!-- イベント詳細の文字数が40字以上の場合，以降を…で省略する -->
+                  {{ event.detail|length > 40 ? event.detail|slice(0, 40) ~ '…' : event.detail }}
+                  </a><br>
                    by {{event.host.name}}<br>
                  {{event.startDate}} より開始</li><br>
               {% endfor %}
             </ul>
-            <a href="/event/new">新規作成</a>
         </div>
     </div>
 {% endblock %}
