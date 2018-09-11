@@ -26,47 +26,34 @@
               ユーザー情報
               <ul>
 
-
-                {% if name == null %}
-                　
-                  {% else %}
+                {% if name == null %}                　
+                {% else %}
                   <li>名前：{{name}}</li>
                 {% endif %}
 
-
                 {% if email == null %}
-
-                  {% else %}
+                {% else %}
                 　<li>email：{{email}}  </li>
                 {% endif %}
 
-
-
                 {% if profile  == null %}
-                　
-                  {% else %}
-                　  <li>自己紹介：{{profile}}  </li>
+                {% else %}
+              　  <li>自己紹介：{{profile}}  </li>
                 {% endif %}
 
-
                 {% if twitter_id  == null %}
-
-                  {% else %}
+                {% else %}
                 　　<li>twitter ID：<a href="https://twitter.com/{{twitter_id}}" target="_blank">{{twitter_id}}</a></li>
                 {% endif %}
 
-
                 {% if github_id == null %}
-
-                  {% else %}
-                　   <li> github ID：<a href="https://github.com/{{github_id}}" target="_blank">{{github_id}} </a></li>
+                {% else %}
+              　   <li> github ID：<a href="https://github.com/{{github_id}}" target="_blank">{{github_id}} </a></li>
                 {% endif %}
 
-
                 {% if qiita_id  is defined %}
-
-                  {% else %}
-                　  　  <li>Qiita ID：{{qiita_id}}</li>
+                {% else %}
+            　  　  <li>Qiita ID：{{qiita_id}}</li>
                 {% endif %}
 
               </ul>
