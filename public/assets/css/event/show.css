@@ -37,12 +37,6 @@
   flex-direction: column;
 }
 
-.user-show .right-container .schedule-action {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
   .mt-1 { margin-top: 10px; }
   .mt-2 { margin-top: 20px; }
   .mt-3 { margin-top: 30px; }
