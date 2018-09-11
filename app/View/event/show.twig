@@ -2,7 +2,7 @@
 {% extends "layout/layout.twig" %}
 
 {#HTMLのタイトルを定義します。#}
-{% block title %}event page{% endblock %}
+{% block title %}{{event.title}}{% endblock %}
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
@@ -31,10 +31,16 @@
                     {{event.detail}}
                 </div>
 
-                <h3 class='owner'>Owner: {{user.name}}</h3>
+                <h3 class='owner mb-3'>Owner: {{user.name}}</h3>
                 <p class='owner-sns'>
-                    <i class="fa fa-twitter-square"></i>{{user.twitter_id}},
-                    <i class="fa fa-github"></i> {{user.github_id}},
+                    {% if user.twitter_id is null %}
+                    {% else %}
+                        <i class="fa fa-twitter-square"></i>{{user.twitter_id}},
+                    {% endif %}
+                    {% if user.github_id is null %}
+                    {% else %}
+                        <i class="fa fa-github"></i> {{user.github_id}},
+                    {% endif %}
                     {# {{user.qiita_id}} #}
                 </p>
 
