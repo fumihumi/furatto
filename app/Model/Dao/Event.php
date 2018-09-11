@@ -3,7 +3,6 @@
 namespace Model\Dao;
 
 /**
-<<<<<<< HEAD
  * Class User
  *
  * Userテーブルを扱う Classです
