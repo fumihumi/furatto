@@ -21,7 +21,7 @@
                 <p class='categories'>
                     tags :
                     {% for category in event.categories | split(', ') %}
-                    <span class='btn category'>{{category}}</span>
+                        <span class='btn category'>{{category}}</span>
                     {% endfor %}
                 </p>
 
@@ -29,25 +29,25 @@
                     {{event.detail}}
                 </div>
 
-                <h3 class='owner mb-3'>Owner: {{user.name}}</h3>
+                <h3 class='owner mb-3'>Owner: {{owner.name}}</h3>
                 <p class='owner-sns'>
-                    {% if user.twitter_id is null %}
+                    {% if owner.twitter_id is null %}
                     {% else %}
-                        <a href="https://twitter.com/{{user.twitter_id}}" target='_blank'>
+                        <a href="https://twitter.com/{{owner.twitter_id}}" target='_blank'>
                             <div class='twitter btn'>
-                                <i class="fa fa-twitter-square"></i>{{user.twitter_id}}
+                                <i class="fa fa-twitter-square"></i>{{owner.twitter_id}}
                             </div>
                         </a>
                     {% endif %}
-                    {% if user.github_id is null %}
+                    {% if owner.github_id is null %}
                     {% else %}
-                        <a href="https://github.com/{{user.github_id}}" target='_blank'>
+                        <a href="https://github.com/{{owner.github_id}}" target='_blank'>
                             <div class='github btn'>
-                                <i class="fa fa-github"></i> {{user.github_id}}
+                                <i class="fa fa-github"></i> {{owner.github_id}}
                             </div>
                         </a>
                     {% endif %}
-                    {# {{user.qiita_id}} #}
+                    {# {{owner.qiita_id}} #}
                 </p>
 
                 <ul class="list-group">
@@ -73,6 +73,33 @@
                     <p><button class='btn btn-warning'>欠席する</button></p>
                 </div>
             </div>
+
+            <div class="panel panel-default date">
+                <div class="panel-heading">
+                    参加者
+                </div>
+
+                <div class="panel-body ">
+                    {% for user in users %}
+                        {% if user.twitter_id is null %}
+                            <span class='btn category'>{{user.name}}</span>
+                        {% else %}
+                            <a class='btn category' href="https://twitter.com/{{user.twitter_id}}" target='_blank'>
+                                <i class="fa fa-twitter-square"></i>{{user.twitter_id}}
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                {#
+                    // FIXME commentとか入れる？
+                    <div class='panel-footer schedule-action text-center'>
+                        <p><button class='btn btn-primary'>参加する</button></p>
+                        <p><button class='btn btn-warning'>欠席する</button></p>
+                    </div>
+                #}
+            </div>
+
 
             </div>
             <div class="row col-sm-1"></div>
