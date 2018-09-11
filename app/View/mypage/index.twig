@@ -1,0 +1,70 @@
+{#レイアウトを継承します#}
+{% extends "layout/layout.twig" %}
+
+{#HTMLのタイトルを定義します。#}
+{% block title %}TOP{% endblock %}
+
+{# 適用させたいスタイルシートのパスを指定します #}
+{% block header_scripts_add %}
+{% endblock %}
+
+{#ここから表示したい情報を記載します。#}
+{% block page_content %}
+    <div class="page-header text-center ">
+        <link href="/assets/css/mypage.css" rel="stylesheet">
+        <h1>ふらっと開催！オンライン勉強会</h1>
+    </div>
+
+    <div class="panel panel-default">
+<div class="panel-heading">
+    <h3 class="panel-title">ユーザー情報</h3>
+  </div>
+  <div class="panel-body">
+    <div class="container">
+      <div class="box">
+          <div class="row">
+              ユーザー情報
+              <ul>
+
+                {% if name == null %}                　
+                {% else %}
+                  <li>名前：{{name}}</li>
+                {% endif %}
+
+                {% if email == null %}
+                {% else %}
+                　<li>email：{{email}}  </li>
+                {% endif %}
+
+                {% if profile  == null %}
+                {% else %}
+              　  <li>自己紹介：{{profile}}  </li>
+                {% endif %}
+
+                {% if twitter_id  == null %}
+                {% else %}
+                　　<li>twitter ID：<a href="https://twitter.com/{{twitter_id}}" target="_blank">{{twitter_id}}</a></li>
+                {% endif %}
+
+                {% if github_id == null %}
+                {% else %}
+              　   <li> github ID：<a href="https://github.com/{{github_id}}" target="_blank">{{github_id}} </a></li>
+                {% endif %}
+
+                {% if qiita_id  is defined %}
+                {% else %}
+            　  　  <li>Qiita ID：{{qiita_id}}</li>
+                {% endif %}
+
+              </ul>
+            </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+{% endblock %}
+
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}aa{% endblock %}
