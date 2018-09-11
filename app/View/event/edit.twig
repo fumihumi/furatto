@@ -1,0 +1,39 @@
+{#レイアウトを継承します#}
+{% extends "layout/layout.twig" %}
+
+{#HTMLのタイトルを定義します。#}
+{% block title %}新規会員登録{% endblock %}
+
+{# このページに適用させたいスタイルシートを指定します #}
+{% block header_scripts_add %}
+{% endblock %}
+
+{#ここから表示したい情報を記載します。#}
+{% block page_content %}
+    <div class="page-header text-center">
+        <h1>会員登録</h1>
+    </div>
+    <div class="container">
+      <div class="box">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="well">
+              <form id="loginForm" method="POST" action="/register/">
+                {% if error %}
+                  <div class="form-group">
+                    <div class="alert alert-danger" role="alert">{{ error }}</div>
+                      </div>
+                {% endif %}
+                    <label for="password" class="control-label"></label>
+                    <textarea type="text" class="form-control" id="profile" name="profile" value="{{ profile }}" title="Please enter your profile" placeholder="自己紹介"></textarea>
+                <button type="submit" class="btn btn-info btn-block">編集完了</button>
+            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}{% endblock %}
