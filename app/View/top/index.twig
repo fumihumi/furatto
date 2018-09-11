@@ -12,16 +12,27 @@
 {% block page_content %}
   <link href="/assets/css/top/top.css" rel="stylesheet">
     <div class="page-header text-center">
-        <h1 class="btn-primary">ふらっと開催！オンライン勉強会</h1>
+        <title>ふらっと開催！オンライン勉強会</title>
+        <h1 class="main">ふらっと開催！オンライン勉強会</h1>
     </div>
     <div class="container">
         <div class="box">
             <div class="row">
-                <h3 class="btn-info">エンジニア向けオンライン勉強会</h3>
-                <p　class="btn;active"></p>
+                <h2 class="top">エンジニア向けのオンライン勉強会</h2>
+                <p　class="btn;active">
+                  <ul class="copy">
+                    <li>ひとりで勉強するのがツライ</li>
+                    <li>地方住みだから都心部で開かれる勉強会に参加できない</li>
+                    <li>初心者で何をやったら良いか分からない</li>
+                    <li>スキマ時間を有効活用したい</li>
+                    <li>エンジニア同士で繋がりたい</li>
+                    <li>学んだ知識を人に教えて役立ててほしい</li>
+                  </ul>
+                  そんなエンジニアの皆さんに活用していただきたい、オンラインでいつでも誰でも勉強会を開催できるサービスです。
+                </p>
             </div>
-            <h2>開催中</h2>
-            <ul class="btn-default">
+            <h2>開催中の勉強会</h2>
+            <ul class="event">
               <!-- 開催中イベントの列挙 -->
               {% for event in events %}
                 <li><a href="/event/{{event.id}}">「{{event.title}}」<br>
