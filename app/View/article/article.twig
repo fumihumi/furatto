@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="well">
-                        <form id="loginForm" method="POST" action="/article/">
+                        <form id="loginForm" method="POST" action="/event/new/">
                             {% if error %}
                                 <div class="form-group">
                                     <div class="alert alert-danger" role="alert">{{ error }}</div>
@@ -41,7 +41,7 @@
                                 <textarea type="text" class="form-control" id="detail" name="detail" value="{{ detail }}" title="Please enter detail" placeholder="イベント内容の説明"></textarea>
                             <div class="form-group">
                                 <label for="password" class="control-label"> カテゴリ</label>
-                                <input type="text" class="form-control" id="profile" name="profile" value="{{ profile }}" title="Please enter your profile" placeholder="例) PHP,もくもく会,初心者歓迎">
+                                <input type="text" class="form-control" id="categories" name="categories" value="{{ categories }}" title="Please enter your profile" placeholder="例) PHP,もくもく会,初心者歓迎">
                               </div>
                             <button type="submit" class="btn btn-info btn-block">作成</button>
                         </form>
