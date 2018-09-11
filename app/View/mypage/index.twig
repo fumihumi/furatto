@@ -28,34 +28,34 @@
 
               <ul class="user_info">
 
-                {% if name == null %}                　
+                {% if user.name == null %}                　
                 {% else %}
-                  <li>名前：{{name}}</li>
+                  <li>名前：{{user.name}}</li>
                 {% endif %}
 
-                {% if email == null %}
+                {% if user.email == null %}
                 {% else %}
-                　<li>email：{{email}}  </li>
+                　<li>email：{{user.email}}  </li>
                 {% endif %}
 
-                {% if profile  == null %}
+                {% if user.profile  == null %}
                 {% else %}
-              　  <li>自己紹介：{{profile}}  </li>
+              　  <li>自己紹介：{{user.profile}}  </li>
                 {% endif %}
 
-                {% if twitter_id  == null %}
+                {% if user.twitter_id  == null %}
                 {% else %}
-                　　<li><i class="fa fa-twitter-square"></i>：<a href="https://twitter.com/{{twitter_id}}" target="_blank">{{twitter_id}}</a></li>
+                　　<li><i class="fa fa-twitter-square"></i>：<a href="https://twitter.com/{{user.twitter_id}}" target="_blank">{{user.twitter_id}}</a></li>
                 {% endif %}
 
-                {% if github_id == null %}
+                {% if user.github_id == null %}
                 {% else %}
-              　   <li> <i class="fa fa-github"></i>：<a href="https://github.com/{{github_id}}" target="_blank">{{github_id}} </a></li>
+              　   <li> <i class="fa fa-github"></i>：<a href="https://github.com/{{user.github_id}}" target="_blank">{{user.github_id}} </a></li>
                 {% endif %}
 
-                {% if qiita_id  is defined %}
+                {% if user.qiita_id == null %}
                 {% else %}
-            　  　  <li>Qiita ID：{{qiita_id}}</li>
+            　  　  <li>Qiita ID：{{user.qiita_id}}</li>
                 {% endif %}
 
               </ul>

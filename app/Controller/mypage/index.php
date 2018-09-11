@@ -9,7 +9,7 @@ $app->get('/mypage/', function (Request $request, Response $response) {
      $currentUserId = $this->session->user_info["id"];
 
      // $param, "", "", 1,false
-     $data = $user->select(array("id" => $currentUserId));
+     $data["user"] = $user->select(array("id" => $currentUserId));
 
     return $this->view->render($response, 'mypage/index.twig', $data);
 });
@@ -18,7 +18,16 @@ $app->get('/user/{id}', function (Request $request, Response $response, $args) {
 
     $user = new User($this->db);
 
-    $data = $user->select(array("id" => $args));
+    $data["user"] = $user->select(array("id" => $args));
 
     return $this->view->render($response, 'mypage/index.twig', $data);
 });
+
+// $app->get('/event/{id}', function (Request $request, Response $response, $args) {
+//
+//     $user = new User($this->db);
+//
+//     $data = $user->select(array("id" => $args));
+//
+//     return $this->view->render($response, 'mypage/index.twig', $data);
+// });

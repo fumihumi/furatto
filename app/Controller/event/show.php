@@ -28,4 +28,3 @@ $app->get('/event/{id}', function (Request $request, Response $response, $args) 
 
     return $this->view->render($response, 'event/show.twig', $data);
 });
-
