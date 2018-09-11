@@ -21,25 +21,25 @@
                 <h2 class="top">エンジニア向けのオンライン勉強会</h2>
                 <p　class="btn;active">
                   <ul class="copy">
-                    <li>ひとりで勉強するのがツライ</li>
-                    <li>地方住みだから都心部で開かれる勉強会に参加できない</li>
-                    <li>初心者で何をやったら良いか分からない</li>
-                    <li>スキマ時間を有効活用したい</li>
-                    <li>エンジニア同士で繋がりたい</li>
-                    <li>学んだ知識を人に教えて役立ててほしい</li>
+                    <li>ひとりで勉強するのが<font color="red">ツライ</font></li>
+                    <li><font color="green">地方住み</font>だから都心部で開かれる勉強会に参加できない</li>
+                    <li><font color="green">初心者</font>で何をやったら良いか分からない</li>
+                    <li><font color="blue">スキマ時間</font>を有効活用したい</li>
+                    <li>エンジニア同士で<font color="blue">繋がりたい</font></li>
+                    <li>学んだ知識を<font color="green">人に教えて</font>役立ててほしい</li>
                   </ul>
-                  そんなエンジニアの皆さんに活用していただきたい、オンラインでいつでも誰でも勉強会を開催できるサービスです。
+                  そんなエンジニアの皆さんに活用していただきたい、オンラインで<font color="#b15cdc">いつでも</font>・<font color="#55d583">誰でも</font>勉強会を開催できるサービスです。
                 </p>
             </div>
             <h2>開催中の勉強会</h2>
             <ul class="event">
               <!-- 開催中イベントの列挙 -->
               {% for event in events %}
-                <li><a href="/event/{{event.id}}">「{{event.title}}」<br>
+                <li><h3 class="head_test"><a href="/event/{{event.id}}">{{event.title}}</h3></a><br>
                   <!-- イベント詳細の文字数が40字以上の場合，以降を…で省略する -->
                   {{ event.detail|length > 40 ? event.detail|slice(0, 40) ~ '…' : event.detail }}
-                  </a><br>
-                   by {{event.host.name}}<br>
+                  <br>
+                   by <a href="/user/{{event.host.id}}">{{event.host.name}}</a><br>
                  {{event.startDate}} より開始</li><br>
               {% endfor %}
             </ul>

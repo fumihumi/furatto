@@ -1,3 +1,47 @@
+/* h3.head_test:link {
+　color: #bbffff;
+}
+h3.head_test:visited {
+　color: #ffffff;
+}
+h3.head_test:hover {
+　color: #ff00ff;
+　background-color: #ffffff;
+}
+h3.head_test:active {
+　color: #ff0000;
+} */
+
+
+h3.head_test {
+position: relative;
+padding: 8px 15px;
+margin-left: 40px;
+background: #cee1e9;
+border-radius: 20px;
+
+}
+
+h3.head_test:before{font-family: FontAwesome;
+content: "\f111";
+position: absolute;
+font-size: 15px;
+left: -40px;
+bottom: 0;
+color: #cee1e9;
+}
+
+h3.head_test:after{
+font-family: FontAwesome;
+content: "\f111";
+position: absolute;
+font-size: 23px;
+left: -23px;
+bottom: 0;
+color: #cee1e9;
+}
+
+
 h1.main{
  position: relative;
  color: #2c5d75;
