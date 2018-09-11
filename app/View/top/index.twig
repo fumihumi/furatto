@@ -16,11 +16,22 @@
     <div class="container">
         <div class="box">
             <div class="row">
-                コンテンツ
+                <h2>エンジニア向けオンライン勉強会</h2>
             </div>
+            <h3>開催中</h3>
+            <ul>
+
+              {% for event in events %}
+                <li><a href="/event/{{event.id}}">{{event.title}}<br> by {{event.host.name}}</a></li>
+              {% endfor %}
+            </ul>
+
+            <!-- 要リンク結合 -->
+            <a href="/event/new">新規作成</a>
         </div>
     </div>
 {% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}
-{% block footer_scripts_add %}aa{% endblock %}
+{% block footer_scripts_add %}
+{% endblock %}
