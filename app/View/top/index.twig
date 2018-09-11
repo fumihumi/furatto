@@ -12,14 +12,12 @@
 {% block page_content %}
   <link href="/assets/css/top/top.css" rel="stylesheet">
     <div class="page-header text-center">
-        <title>ふらっと開催！オンライン勉強会</title>
         <h1 class="main">ふらっと開催！オンライン勉強会</h1>
     </div>
     <div class="container">
         <div class="box">
             <div class="row">
                 <h2 class="top">エンジニア向けのオンライン勉強会</h2>
-                <p　class="btn;active">
                   <ul class="copy">
                     <li>ひとりで勉強するのが<font color="red">ツライ</font></li>
                     <li><font color="green">地方住み</font>だから都心部で開かれる勉強会に参加できない</li>
@@ -28,10 +26,11 @@
                     <li>エンジニア同士で<font color="blue">繋がりたい</font></li>
                     <li>学んだ知識を<font color="green">人に教えて</font>役立ててほしい</li>
                   </ul>
-                  そんなエンジニアの皆さんに活用していただきたい、オンラインで<font color="#b15cdc">いつでも</font>・<font color="#55d583">誰でも</font>勉強会を開催できるサービスです。
+                <p class="box7">
+                  そんな思いをもつエンジニアの皆さんに活用していただきたい、オンラインで<font color="#b15cdc">いつでも</font>・<font color="#55d583">誰でも</font>勉強会を開催できるサービスです。
                 </p>
             </div>
-            <h2>開催中の勉強会</h2>
+            <h2 class="in_session">開催中の勉強会</h2>
             <ul class="event">
               <!-- 開催中イベントの列挙 -->
               {% for event in events %}
