@@ -30,14 +30,14 @@ return [
             'metadata_dirs' => [ __DIR__ . '/src/Domain'],
 
             'connection' => [
-                'driver' => 'pdo_mysql',
-                'host' => '127.0.0.1',
-                'port' => '1002',
-                'user' => 'team-b',
-                'password' => 'team-b!',
-                'dbname' => 'team-b',
-                'charset' => 'utf8'
-            ]
+                            'driver' => 'pdo_mysql',
+                            'host' => '127.0.0.1',
+                            'port' => '1002',
+                            'user' => 'team-b',
+                            'password' => 'team-b!',
+                            'dbname' => 'team-b',
+                            'charset' => 'utf8'
+                        ]
         ]
     ],
 ];

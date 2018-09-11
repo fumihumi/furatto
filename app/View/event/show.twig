@@ -1,0 +1,53 @@
+{#レイアウトを継承します#}
+{% extends "layout/layout.twig" %}
+
+{#HTMLのタイトルを定義します。#}
+{% block title %}event page{% endblock %}
+
+{# 適用させたいスタイルシートのパスを指定します #}
+{% block header_scripts_add %}
+{% endblock %}
+
+{#ここから表示したい情報を記載します。#}
+{% block page_content %}
+    <link href="/assets/css/event/show.css" rel="stylesheet">
+    <div class="page-header text-center user-show-header">
+        <h1>{{event.title}}</h1>
+        <div class='flex-row date'>
+            <p>{{event.startDate}}</p>
+            <p>{{event.endDate}}</p>
+        </div>
+    </div>
+    <div class="container user-show">
+        <div class="box">
+            <div class="row">
+            {# TODO eachしてカテゴリをボタンにしたい #}
+                <p class='categories'>
+                    tags :
+                    <span>{{event.categories}}</span>
+                </p>
+
+                <div class='detail mt-2 mb-2'>
+                    {{event.detail}}
+                </div>
+
+                <h3 class='owner'>Owner: {{user.name}}</h3>
+                <p class='owner-sns'>
+                    <i class="fa fa-twitter-square"></i>{{user.twitter_id}},
+                    <i class="fa fa-github"></i> {{user.github_id}},
+                    {# {{user.qiita_id}} #}
+                </p>
+
+                <ul class="list-group">
+                    <li class="list-group-item">よろしくお願いします！</li>
+                    <li class="list-group-item">今日はまるまるします</li>
+                    <li class="list-group-item">python始めました！</li>
+                    <li class="list-group-item">Progateレベル100超えました！</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}{% endblock %}

@@ -10,25 +10,39 @@
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
+  <link href="/assets/css/top/top.css" rel="stylesheet">
     <div class="page-header text-center">
-        <h1>ふらっと開催！オンライン勉強会</h1>
+        <title>ふらっと開催！オンライン勉強会</title>
+        <h1 class="main">ふらっと開催！オンライン勉強会</h1>
     </div>
     <div class="container">
         <div class="box">
             <div class="row">
-                <h2>エンジニア向けオンライン勉強会</h2>
+                <h2 class="top">エンジニア向けのオンライン勉強会</h2>
+                <p　class="btn;active">
+                  <ul class="copy">
+                    <li>ひとりで勉強するのが<font color="red">ツライ</font></li>
+                    <li><font color="green">地方住み</font>だから都心部で開かれる勉強会に参加できない</li>
+                    <li><font color="red">初心者</font>で何をやったら良いか分からない</li>
+                    <li><font color="blue">スキマ時間</font>を有効活用したい</li>
+                    <li>エンジニア同士で<font color="blue">繋がりたい</font></li>
+                    <li>学んだ知識を<font color="green">人に教えて</font>役立ててほしい</li>
+                  </ul>
+                  そんなエンジニアの皆さんに活用していただきたい、オンラインで<font color="#b15cdc">いつでも</font>・<font color="#55d583">誰でも</font>勉強会を開催できるサービスです。
+                </p>
             </div>
-            <h3>開催中</h3>
-            <ul>
-
+            <h2>開催中の勉強会</h2>
+            <ul class="event">
+              <!-- 開催中イベントの列挙 -->
               {% for event in events %}
-                <li><a href="/event/{{event.id}}">「{{event.title}}」<br>
-                  {{event.detail | slice(0, 39)}}…</a><br>
-                   by {{event.host.name}}<br>
+                <li><h3 class="head_test"><a href="/event/{{event.id}}">{{event.title}}</h3></a><br>
+                  <!-- イベント詳細の文字数が40字以上の場合，以降を…で省略する -->
+                  {{ event.detail|length > 40 ? event.detail|slice(0, 40) ~ '…' : event.detail }}
+                  <br>
+                   by <a href="/user/{{event.host.id}}">{{event.host.name}}</a><br>
                  {{event.startDate}} より開始</li><br>
               {% endfor %}
             </ul>
-            <a href="/event/new">新規作成</a>
         </div>
     </div>
 {% endblock %}
