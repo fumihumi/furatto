@@ -10,21 +10,22 @@
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
+  <div class="box">
     <div class="page-header text-center">
-        <h1>会員登録</h1>
+        <h1>投稿内容編集</h1>
     </div>
     <div class="container">
       <div class="box">
         <div class="row">
           <div class="col-md-12">
             <div class="well">
-              <form id="loginForm" method="POST" action="/register/">
+              <form id="loginForm" method="POST" action="/event/edit/">
                 {% if error %}
                   <div class="form-group">
                     <div class="alert alert-danger" role="alert">{{ error }}</div>
-                      </div>
+                  </div>
                 {% endif %}
-                    <label for="password" class="control-label"></label>
+                    <label for="title" class="control-label">タイトル</label>
                     <textarea type="text" class="form-control" id="profile" name="profile" value="{{ profile }}" title="Please enter your profile" placeholder="自己紹介"></textarea>
                 <button type="submit" class="btn btn-info btn-block">編集完了</button>
             </form>
@@ -33,6 +34,7 @@
             </div>
         </div>
     </div>
+  </div>
 {% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}
