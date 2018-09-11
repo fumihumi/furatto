@@ -22,11 +22,12 @@
             <ul>
 
               {% for event in events %}
-                <li><a href="/event/{{event.id}}">{{event.title}}<br> by {{event.host.name}}</a></li>
+                <li><a href="/event/{{event.id}}">「{{event.title}}」<br>
+                  {{event.detail | slice(0, 39)}}…</a><br>
+                   by {{event.host.name}}<br>
+                 {{event.startDate}} より開始</li><br>
               {% endfor %}
             </ul>
-
-            <!-- 要リンク結合 -->
             <a href="/event/new">新規作成</a>
         </div>
     </div>
