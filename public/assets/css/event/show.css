@@ -1,32 +1,46 @@
 .user-show-header {
   display: flex;
+  flex-direction: column;
+}
+
+/* .user-show-header .date {
+  TODO 2column layout
+  display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-}
-
-/*
-  .user-show-header .date{
-    TODO
-  }
-  .user-show .date {
-    background: red;
-    display: flex;
-    flex-direction: row;
-}
-
-*/
+  justify-content:flex-end;
+} */
 
 .user-show .categories{
   font-size: 24px;
   letter-spacing: 2px;
 }
 
+.user-show .category {
+  border: solid 1px #41b2e0;
+}
+
 .user-show .detail{
   font-size: 22px;
-  width: 40vw;
-  border: solid 1px goldenrod;
+  width: 45vw;
+  border: solid 1px skyblue;
+  padding: 10px;
   border-radius: 10px;
+}
+
+.user-show .right-container {
+    /* height: 400px; */
+}
+
+.user-show .right-container .date {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-show .right-container .schedule-action {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
   .mt-1 { margin-top: 10px; }

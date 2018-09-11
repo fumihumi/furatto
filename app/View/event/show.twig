@@ -13,18 +13,16 @@
     <link href="/assets/css/event/show.css" rel="stylesheet">
     <div class="page-header text-center user-show-header">
         <h1>{{event.title}}</h1>
-        <div class='flex-row date'>
-            <p>{{event.startDate}}</p>
-            <p>{{event.endDate}}</p>
-        </div>
     </div>
     <div class="container user-show">
-        <div class="box">
-            <div class="row">
+            <div class="row col-sm-1"></div>
+            <div class="row col-sm-8">
             {# TODO eachしてカテゴリをボタンにしたい #}
                 <p class='categories'>
                     tags :
-                    <span>{{event.categories}}</span>
+                    {% for category in event.categories | split(', ') %}
+                    <span class='btn category'>{{category}}</span>
+                    {% endfor %}
                 </p>
 
                 <div class='detail mt-2 mb-2'>
@@ -59,7 +57,23 @@
                     <li class="list-group-item">Progateレベル100超えました！</li>
                 </ul>
             </div>
-        </div>
+            <div class='col-sm-3 right-container'>
+            <div class="panel panel-default date">
+                <div class="panel-heading">
+                    時間だよ〜〜〜〜〜〜
+                </div>
+                <div class="panel-body ">
+                    <p>{{event.startDate}}</p>
+                    <p>{{event.endDate}}</p>
+                </div>
+            </div>
+
+                <div class='schedule-action text-center'>
+                    <p><button class='btn btn-primary'>参加する</button></p>
+                    <p><button class='btn btn-warning'>欠席する</button></p>
+                </div>
+            </div>
+            <div class="row col-sm-1"></div>
     </div>
 {% endblock %}
 
