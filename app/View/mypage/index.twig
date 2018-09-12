@@ -28,7 +28,6 @@
                 {% else %}
 
                   <li class="postit-profile">名前：{{user.name}}</li>
-
                 {% endif %}
 
                 {% if user.email == null %}
@@ -66,6 +65,21 @@
                     {% endfor %}
                   </li>
                 {% endif %}
+                {% if categories %}
+                    <li>興味のあるTag:
+                      {% for category in categories %}
+                        <span class='btn category'>{{category}}</span>
+                      {% endfor %}
+                    </li>
+                {% endif %}
+
+                {% if is_mypage %}
+                <form action="#"	onsubmit="alert('テストのため送信しません');return false;" onreset="alert('フォームをリセットします')">
+		                    <button type="button" class="btn btn-info">ユーザー情報を編集する</button>
+
+		            </form>
+                {% endif %}
+
 
                 {% if categories %}
                     <li>興味のあるTag:

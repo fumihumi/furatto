@@ -20,7 +20,12 @@ $app->get('/mypage/', function (Request $request, Response $response) {
      } else {
          $data['events'] = [];
      }
-     
+     foreach ($data['events'] as $event) {
+         $data['categories'] = explode(', ', $event['categories']);
+     }
+
+     $data['is_mypage'] = true;
+
     return $this->view->render($response, 'mypage/index.twig', $data);
 });
 
@@ -34,9 +39,13 @@ $app->get('/user/{id}/', function (Request $request, Response $response, $args) 
 
     $eventIds = $eventUser->getEventIdsByUserId($userId);
     if (count($eventIds)) {
-        $data['events'] = $event-> getEventByIds($eventIds);
+        $data['events'] = $event->getEventByIds($eventIds);
     } else {
         $data['events'] = [];
+    }
+
+    foreach ($data['events'] as $event) {
+        $data['categories'] = explode(', ', $event['categories']);
     }
 
     return $this->view->render($response, 'mypage/index.twig', $data);
