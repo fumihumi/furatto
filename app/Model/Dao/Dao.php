@@ -186,6 +186,8 @@ abstract class Dao
         $queryBuilder
             ->update($this->_table_name);
 
+
+
         //引数の配列からWhere句を生成
         foreach ($param as $key => $val) {
 
@@ -198,7 +200,15 @@ abstract class Dao
                 }
             } else {
                 //idというカラム名の場合は、更新するIDを指定します
-                $queryBuilder->where($key, ":$key");
+
+                var_dump(
+                  $key,
+                  $val
+                );
+
+
+                // $queryBuilder->where($key, ":$key");
+                $queryBuilder->where("$key = :$key");
                 $queryBuilder->setParameter(":$key", $val);
             }
         }
