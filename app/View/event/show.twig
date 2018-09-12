@@ -15,127 +15,123 @@
     <div class="page-header text-center user-show-header">
         <h1 class="head_test">{{event.title}}</h1>
     </div>
+
     <div class="container user-show">
-            <div class="row col-sm-1"></div>
-            <div class="row col-sm-8">
-              <h3 class='postit'>主催者</h3><br>
-              <a href="/user/{{owner.id}}">{{owner.name}}</a></h3>
-              <p class='owner-sns'>
-                  {% if owner.twitter_id is null %}
-                  {% else %}
-                      <a href="https://twitter.com/{{owner.twitter_id}}" target='_blank'>
-                          <div class='twitter btn'>
-                              <i class="fa fa-twitter-square"></i>{{owner.twitter_id}}
-                          </div>
-                      </a>
-                  {% endif %}
-                  {% if owner.github_id is null %}
-                  {% else %}
-                      <a href="https://github.com/{{owner.github_id}}" target='_blank'>
-                          <div class='github btn'>
-                              <i class="fa fa-github"></i> {{owner.github_id}}
-                          </div>
-                      </a>
-                  {% endif %}
-                  {# {{owner.qiita_id}} #}
-              </p>
-                <p class='categories'>
-                    <div class="postit">タグ</div><br>
-                    {% for category in event.categories | split(', ') %}
-                        <span class='btn category'>{{category}}</span>
-                    {% endfor %}
-                </p><br>
-                <p class="postit">詳細</p>
-                <div class='detail mt-2 mb-2'>
-                    {{event.detail}}
-                </div>
+        <div class="row col-sm-1"></div>
+        <div class="row col-sm-8">
+            <h3 class='postit'>主催者</h3><br>
+            <a href="/user/{{owner.id}}">{{owner.name}}</a></h3>
+            <p class='owner-sns'>
+                {% if owner.twitter_id is null %}
+                {% else %}
+                    <a href="https://twitter.com/{{owner.twitter_id}}" target='_blank'>
+                        <div class='twitter btn'>
+                            <i class="fa fa-twitter-square"></i>{{owner.twitter_id}}
+                        </div>
+                    </a>
+                {% endif %}
+
+                {% if owner.github_id is null %}
+                {% else %}
+                    <a href="https://github.com/{{owner.github_id}}" target='_blank'>
+                        <div class='github btn'>
+                            <i class="fa fa-github"></i> {{owner.github_id}}
+                        </div>
+                    </a>
+                {% endif %}
+            </p>
+
+            <p class='categories'>
+                <div class="postit">タグ</div><br>
+                {% for category in event.categories | split(', ') %}
+                    <span class='btn category'>{{category}}</span>
+                {% endfor %}
+            </p>
+            <br />
+
+            <p class="postit">詳細</p>
+            <div class='detail mt-2 mb-2'>
+                {{event.detail}}
+            </div>
+
             <p class="postit">チャット</p>
+
             <div class="chat">
-              <!-- 左からの吹き出し -->
-              <!-- <div class="kaiwa">
-               <div class="kaiwa-text-right">
-                 <p class="kaiwa-text">
-               よろしくお願いします！
-                 </p>
-               </div>
-              </div> -->
-              <!-- 右からの吹き出し -->
-            {% for message in messages %}
-                 <!-- TODO currentuserなら <div class="kaiwa-text-right">-->
-                 <div class="kaiwa">
-                  <div class="kaiwa-text-left">
-                    <p class="kaiwa-text">
-                      {{message.content}}
-                    </p>
-                  </div>
-                 </div>
-            {% endfor %}
-                <div class='panel-footer schedule-action text-center'>
-                  <form id="newChatContentForm" method="POST" action="/event/{{event.id}}/chat/">
-                      <input name="content" type='text' placeholder='メッセージ内容'>
-                      <button type='submit'class='btn-submit'>メッセージを送る</button>
-                  </form>
-                </div>
-            </div>
-
-            </div>
-            <div class='col-sm-3 right-container'>
-            <div class="panel panel-default date">
-                <div class="panel-heading">
-                     開催期間
-                </div>
-                <div class="panel-body ">
-                  <p>開始時間<br />{{event.startDate}}</p>
-                  <p>終了予定時間<br />{{event.endDate}}</p>
-                </div>
-
-                <div class='panel-footer schedule-action text-center'>
-                  {% if isJoin == true %}
-                       <p>
-                           <button class='btn-submit'>欠席する</button>
-                       </p>
-                   {% else %}
-                       <p>
-                           <form id="participateForm" method="POST" action="/event/{{event.id}}/participate/">
-                               <!-- <input type="hidden"  name="participate" id="participate" value="1" checked> -->
-                               <button type="submit"class='btn-submit'>参加する</button>
-                           </form>
-                       </p>
-                   {% endif %}
-                </div>
-            </div>
-
-            <div class="panel panel-default date">
-                <div class="panel-heading">
-                    参加者
-                </div>
-
-                <div class="panel-body ">
-                    {% for user in users %}
-                        {% if user.twitter_id is null %}
-                            {# TODO user/{id} にとばしたい π#}
-                            <span class='btn category'>{{user.name}}</span>
+                {% for message in messages %}
+                    <!-- TODO currentuserなら <div class="kaiwa-text-right">-->
+                    <div class="kaiwa">
+                        {% if currentUser.id == message.user_id %}
+                            <div class="kaiwa-text-left">
+                                <p class="kaiwa-text">
+                                    {{message.content}}
+                                </p>
+                            </div>
                         {% else %}
-                            <a class='btn category' href="https://twitter.com/{{user.twitter_id}}" target='_blank'>
-                                <i class="fa fa-twitter-square"></i>{{user.twitter_id}}
-                            </a>
+                            <div class="kaiwa-text-right">
+                                <p class="kaiwa-text">
+                                    {{message.content}}
+                                </p>
+                            </div>
                         {% endif %}
-                    {% endfor %}
-                </div>
-
-                {#
-                    // FIXME commentとか入れる？
-                    <div class='panel-footer schedule-action text-center'>
-                        <p><button class='btn-submit'>参加する</button></p>
-                        <p><button class='btn btn-warning'>欠席する</button></p>
                     </div>
-                #}
+                {% endfor %}
             </div>
 
-
+            <div class='panel-footer schedule-action text-center'>
+                <form id="newChatContentForm" method="POST" action="/event/{{event.id}}/chat/">
+                    <input name="content" type='text' placeholder='メッセージ内容'>
+                    <button type='submit'class='btn-submit'>メッセージを送る</button>
+                </form>
             </div>
-            <div class="row col-sm-1"></div>
+        </div>
+    {# </div> #}
+
+    <div class='col-sm-3 right-container'>
+        <div class="panel panel-default date">
+            <div class="panel-heading">
+                開催期間
+            </div>
+        <div class="panel-body ">
+        <p>開始時間<br />{{event.startDate}}</p>
+        <p>終了予定時間<br />{{event.endDate}}</p>
     </div>
+
+        <div class='panel-footer schedule-action text-center'>
+            {% if isJoin == true %}
+                <p><button class='btn-submit'>欠席する</button></p>
+            {% else %}
+                <p>
+                    <form id="participateForm" method="POST" action="/event/{{event.id}}/participate/">
+                        <!-- <input type="hidden"  name="participate" id="participate" value="1" checked> -->
+                        <button type="submit"class='btn-submit'>参加する</button>
+                    </form>
+                </p>
+            {% endif %}
+        </div>
+
+
+        <div class="panel panel-default date">
+            <div class="panel-heading">
+                参加者
+            </div>
+
+            <div class="panel-body ">
+                {% for user in users %}
+                    {% if user.twitter_id is null %}
+                        {# TODO user/{id} にとばしたい π#}
+                        <span class='btn category'>{{user.name}}</span>
+                    {% else %}
+                        <a class='btn category' href="https://twitter.com/{{user.twitter_id}}" target='_blank'>
+                            <i class="fa fa-twitter-square"></i>{{user.twitter_id}}
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row col-sm-1"></div>
+    </div>
+</div>
 {% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}
