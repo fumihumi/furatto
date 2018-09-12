@@ -10,14 +10,10 @@
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
-    <div class="page-header text-center ">
-        <link href="/assets/css/mypage.css" rel="stylesheet">
-        <h1>ふらっと開催！オンライン勉強会</h1>
-    </div>
 
     <div class="panel panel-default">
 <div class="panel-heading">
-    <h3 class="panel-title">ユーザー情報</h3>
+    <h3 class="panel-title">ユーザ情報</h3>
   </div>
   <div class="panel-body">
     <div class="container">
@@ -28,7 +24,7 @@
 
                 {% if name == null %}                　
                 {% else %}
-                  <li>名前：{{name}}</li>
+                  <li class="postit">名前：{{name}}</li>
                 {% endif %}
 
                 {% if email == null %}
@@ -67,4 +63,4 @@
 {% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}
-{% block footer_scripts_add %}aa{% endblock %}
+{% block footer_scripts_add %}{% endblock %}

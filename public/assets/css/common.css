@@ -19,14 +19,16 @@
 }
 
 
+/* body {background-image: url("back_test.jpg"); } */
+
 /* --- 方眼紙背景のBOX定義 ------------------------------------------- */
 body {
   margin     : auto;
-                                            /* ドット（水玉）模様のCSS */
-  background-color : #e3e9e3;
+
+  background-color : #f3fff7;
   background-image :
 
-    repeating-linear-gradient(to bottom,          /* 横線 */
+    /* repeating-linear-gradient(to bottom,
        transparent 12px,
        rgba(255, 255, 255, 0.20) 13px,  rgba(255, 255, 255, 0.20) 13px,
        transparent 14px,  transparent 25px,
@@ -38,7 +40,7 @@ body {
        transparent 53px,  transparent 64px,
        rgba(255, 255, 255, 0.20) 65px,  rgba(255, 255, 255, 0.20) 65px),
 
-    repeating-linear-gradient(to right,          /* 縦線 */
+    repeating-linear-gradient(to right,
        transparent 12px,
        rgba(255, 255, 255, 0.20) 13px,  rgba(255, 255, 255, 0.20) 13px,
        transparent 14px,  transparent 25px,
@@ -48,10 +50,10 @@ body {
        transparent 40px,  transparent 51px,
        rgba(255, 255, 255, 0.20) 52px,  rgba(255, 255, 255, 0.20) 52px,
        transparent 53px,  transparent 64px,
-       rgba(255, 255, 255, 0.20) 65px,  rgba(255, 255, 255, 0.20) 65px);
+       rgba(255, 255, 255, 0.20) 65px,  rgba(255, 255, 255, 0.20) 65px); */
 }
 
-.in_session {
+.postit {
     margin:  0;                 /* デフォルトCSS打ち消し */
     font-size:  24px;           /* 文字サイズ指定 */
     position:  relative;        /* 位置調整 */
@@ -64,7 +66,7 @@ body {
 }
 
 
-.in_session:before {
+.postit:before {
     content:  '';               /* 空白の要素を作る */
     background-color: #b3b3b3;  /* 背景色指定 */
     display:  block;            /* ブロック要素にする */
@@ -121,7 +123,7 @@ body {
     padding: 0;
 }
 
-h3.head_test {
+.head_test {
 position: relative;
 padding: 8px 15px;
 margin-left: 40px;
@@ -130,7 +132,7 @@ border-radius: 20px;
 
 }
 
-h3.head_test:before{font-family: FontAwesome;
+.head_test:before{font-family: FontAwesome;
 content: "\f111";
 position: absolute;
 font-size: 15px;
@@ -139,7 +141,7 @@ bottom: 0;
 color: #cee1e9;
 }
 
-h3.head_test:after{
+.head_test:after{
 font-family: FontAwesome;
 content: "\f111";
 position: absolute;
@@ -149,21 +151,49 @@ bottom: 0;
 color: #cee1e9;
 }
 
-
-h1.main{
- position: relative;
- color: #153c6e;
- line-height: 1.4;
- -webkit-box-reflect: below -10px -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0) 10%,rgba(0, 0, 0, 0.6));
+.square_btn39{
+    position: relative;
+    padding: 0.35em 0.7em 0.2em;
+    background: #668ad8;
+    color: #FFF;
+    text-decoration: none;
+}
+.square_btn39:before{
+    content: '';
+    position: absolute;
+    z-index: -2;
+    height: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    top: 100%;
+ 	top: calc(100% - 2px);
+    left: 0;
+    background: linear-gradient(-135deg, #668ad8 4px, transparent 0) 0 4px, linear-gradient(135deg, #668ad8 4px, #fff 0) 0 4px;
+    background-color: #668ad8;
+    background-position: left bottom;
+    background-repeat: repeat-x;
+    background-size: 10px 10px;
+    transition: .2s;
+}
+.square_btn39:hover:before {
+    background-size: 13px 10px;
 }
 
-h2.top{
+.main{
+ position: relative;
+ color: #635074;/*#153c6e;*/
+ line-height: 1.4;
+ -webkit-box-reflect: below -10px -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0) 10%,rgba(0, 0, 0, 0.6));
+ background-image: url("back_test.jpg");
+}
+
+.top{
 position: relative;
 padding-left: 30px;
 color:#153c6e;
 }
 
-h2.top:before{
+.top:before{
 position: absolute;
 font-family: FontAwesome;
 content: "\f121";
@@ -183,19 +213,20 @@ top: 50%;
 transform: translateY(-50%);
 }
 
-ul.copy {
+.copy {
   border: solid 2px skyblue;/*線の設定*/
   padding: 0.5em 1em 0.5em 2.3em;
   position: relative;
+  background-color: #fafcfa;
 }
 
-ul.copy li {
+.copy li {
   line-height: 1.5;
   padding: 0.5em 0;
   list-style-type: none!important;
 }
 
-ul.copy li:before {/*疑似要素*/
+.copy li:before {/*疑似要素*/
   font-family:  FontAwesome;
   content: "\f075";/*アイコンの種類*/
   position: absolute;
@@ -203,12 +234,12 @@ ul.copy li:before {/*疑似要素*/
   color: skyblue; /*アイコン色*/
 }
 
-ul.event {
+.event {
   padding: 0;
   position: relative;
 }
 
-ul.event li{
+.event li{
   color: black;
   border-left: solid 8px #2d8fdd;/*左側の線*/
   background: whitesmoke;/*背景色*/
