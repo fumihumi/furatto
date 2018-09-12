@@ -65,6 +65,16 @@
                   </li>
                 {% endfor %}
 
+                <p>興味のあるTag</p>
+
+                <li>
+                  {% for event in events %}
+                    {% for category in event.categories | split(', ') %}
+                      <span class='btn category'>{{category}}</span>
+                    {% endfor %}
+                  {% endfor %}
+                </li>
+
               </ul>
             </div>
         </div>
