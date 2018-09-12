@@ -10,6 +10,7 @@
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
+    <link href="/assets/css/common.css" rel="stylesheet">
     <div class="page-header text-center">
         <h1>退会の確認</h1>
     </div>
@@ -23,7 +24,7 @@
                         <br>
                         <p class="text-center">
                         <form action="/resign/" method="post">
-                            <button class="btn btn-info">退会する</button>
+                            <button class="btn-submit">退会する</button>
                         </form>
                         </p>
                     </div>
