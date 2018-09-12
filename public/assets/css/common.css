@@ -278,11 +278,11 @@ color: #cee1e9;
 }
 
 .main{
+ margin-bottom: 40px;
  position: relative;
  color: #4e555f;
  line-height: 1.4;
  -webkit-box-reflect: below -10px -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0) 10%,rgba(0, 0, 0, 0.6));
- /* background-image: url("main.jpg"); */
 }
 
 .top{
