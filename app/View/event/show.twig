@@ -50,6 +50,7 @@
                     {{event.detail}}
                 </div>
             <p class="postit">チャット</p>
+
             <div class="chat">
               <!-- 左からの吹き出し -->
               <div class="kaiwa">
@@ -60,15 +61,19 @@
                </div>
               </div>
               <!-- 右からの吹き出し -->
-              <div class="kaiwa">
-               <div class="kaiwa-text-left">
-                 <p class="kaiwa-text">
-                  よろしくお願いします．よろしくお願いします．よろしくお願いします．よろしくお願いします．よろしくお願いします．よろしくお願いします．<br>
-                  よろしくお願いします．よろしくお願いします．よろしくお願いします．よろしくお願いします．<br>
-                  よろしくお願いします．よろしくお願いします．よろしくお願いします．
-                 </p>
-               </div>
-              </div>
+
+            {% for message in messages %}
+                 <!-- TODO currentuserなら <div class="kaiwa-text-right">-->
+                <div class="kaiwa">
+                  <div class="kaiwa-text-left">
+                  　<p class="kaiwa-text">
+                  　　{{message.content}}
+      　　　　　　　　</p>
+                  </div>
+                </div>
+            {% endfor %}
+
+
                 <!-- <ul class="list-group">
                     <li class="list-group-item">よろしくお願いします！</li>
                     <li class="list-group-item">今日はまるまるします</li>
@@ -76,22 +81,12 @@
                     <li class="list-group-item">Progateレベル100超えました！</li>
                 </ul> -->
                 <div class='panel-footer schedule-action text-center'>
-
-                            <!-- <li> -->
-                                <form id="newChatContentForm" method="POST" action="/event/{{event.id}}/chat/">
-                                    <input type='text' placeholder='メッセージ内容'>
-                                    <button type='submit'class='btn-submit'>メッセージを送る</button>
-                                </form>
-                            <!-- </li> -->
-
-                            <!-- <li>
-                                <form id="participateForm2" method="POST" action="/event/{{event.id}}/participate/">
-                                    <buttosn type="submit"class='btn-submit'>参加する</button>
-                                </form>
-                            </li> -->
-
-                    </div>
-                    </div>
+                  <form id="newChatContentForm" method="POST" action="/event/{{event.id}}/chat/">
+                      <input name="content" type='text' placeholder='メッセージ内容'>
+                      <button type='submit'class='btn-submit'>メッセージを送る</button>
+                  </form>
+                </div>
+            </div>
 
             </div>
             <div class='col-sm-3 right-container'>
@@ -113,8 +108,8 @@
                    {% else %}
                        <p>
                            <form id="participateForm" method="POST" action="/event/{{event.id}}/participate/">
-                               <input type="hidden"  name="participate" id="participate" value="1" checked>
-                               <buttosn type="submit"class='btn-submit'>参加する</button>
+                               <!-- <input type="hidden"  name="participate" id="participate" value="1" checked> -->
+                               <button type="submit"class='btn-submit'>参加する</button>
                            </form>
                        </p>
                    {% endif %}
