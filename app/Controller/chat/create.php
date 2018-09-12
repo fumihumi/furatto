@@ -16,7 +16,7 @@ $app->post('/event/{id}/chat/', function (Request $request, Response $response, 
     $userInfo = $this->session["user_info"];
     $currentUserId = $userInfo['id'];
 
-    $content = $params['content']."<br />"."by".$userInfo['name'];
+    $content = $params['content']."<br />"."by  ".$userInfo['name'];
 
     $chatData = array(
         'user_id' => $currentUserId,
