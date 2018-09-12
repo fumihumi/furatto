@@ -17,7 +17,6 @@
     <div class="container user-show">
             <div class="row col-sm-1"></div>
             <div class="row col-sm-8">
-            {# TODO eachしてカテゴリをボタンにしたい #}
                 <p class='categories'>
                     tags :
                     {% for category in event.categories | split(', ') %}
@@ -82,7 +81,7 @@
                 <div class="panel-body ">
                     {% for user in users %}
                         {% if user.twitter_id is null %}
-                            {# TODO user/{id} にとばしたい #}
+                            {# TODO user/{id} にとばしたい π#}
                             <span class='btn category'>{{user.name}}</span>
                         {% else %}
                             <a class='btn category' href="https://twitter.com/{{user.twitter_id}}" target='_blank'>
