@@ -10,8 +10,7 @@
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
-
-
+<link href="/assets/css/common.css" rel="stylesheet">
     <div class="panel panel-default">
 <div class="panel-heading">
     <h3 class="panel-title">ユーザ情報</h3>
@@ -22,12 +21,12 @@
       <div class="box">
           <div class="row">
 
-              <ul class="user_info">
+              <ul class="profile">
 
                 {% if user.name == null %}                　
                 {% else %}
 
-                  <li class="postit">名前：{{name}}</li>
+                  <li>名前：{{user.name}}</li>
 
                 {% endif %}
 
@@ -55,7 +54,7 @@
                 {% else %}
             　  　  <li>Qiita ID：{{user.qiita_id}}</li>
                 {% endif %}
-
+                <br>
                 <p>参加イベント</p>
                 {% for event in events %}
                   <li>
