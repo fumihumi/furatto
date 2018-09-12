@@ -110,8 +110,7 @@
             <div class="panel-body ">
                 {% for user in users %}
                     {% if user.twitter_id is null %}
-                        {# TODO user/{id} にとばしたい π#}
-                        <span class='btn category'>{{user.name}}</span>
+                        <a class='btn category' href="/user/{{user.id}}/">{{user.name}}</a>
                     {% else %}
                         <a class='btn category' href="https://twitter.com/{{user.twitter_id}}" target='_blank'>
                             <i class="fa fa-twitter-square"></i>{{user.twitter_id}}
