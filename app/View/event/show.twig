@@ -68,7 +68,13 @@
                 </div>
 
                 <div class='panel-footer schedule-action text-center'>
-                    <p><button class='btn btn-primary'>参加する</button></p>
+                    <p>
+                        <form id="participateForm" method="POST" action="/event/{{event.id}}/participate/">
+                            <input type="hidden"  name="participate" id="participate" value="1" checked>
+                            <button type="submit"class='btn btn-primary'>参加する</button>
+                        </form>
+
+                    </p>
                     <p><button class='btn btn-warning'>欠席する</button></p>
                 </div>
             </div>
