@@ -56,13 +56,13 @@
                     {% if currentUser.id == message.user_id %}
                         <div class="kaiwa-text-left">
                             <p class="kaiwa-text">
-                                {{message.content}}
+                                {{message.content | raw}}
                             </p>
                         </div>
                     {% else %}
                         <div class="kaiwa-text-right">
                             <p class="kaiwa-text">
-                                {{message.content}}
+                                {{message.content | raw}}
                             </p>
                         </div>
                     {% endif %}

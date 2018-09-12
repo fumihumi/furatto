@@ -10,16 +10,18 @@ $app->post('/event/{id}/chat/', function (Request $request, Response $response, 
     $params = $request->getParsedBody();
 
     if (empty(trim($params['content']))){
-      return $response->withRedirect("/event/".$eventId);
+        return $response->withRedirect("/event/".$eventId);
     }
 
     $userInfo = $this->session["user_info"];
     $currentUserId = $userInfo['id'];
 
+    $content = $params['content']."<br />"."by".$userInfo['name'];
+
     $chatData = array(
         'user_id' => $currentUserId,
         'event_id' => $eventId,
-        'content' => $params['content']
+        'content' => $content
     );
 
     $chat = new Chat($this->db);
