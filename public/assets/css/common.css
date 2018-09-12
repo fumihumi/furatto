@@ -27,6 +27,7 @@ input.chat {
   list-style-type: none!important;
 }
 
+.mb-4 { margin-bottom: 65px; }
 
 .square_btn{
     display: inline-block;
