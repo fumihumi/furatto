@@ -20,6 +20,7 @@ $app->get('/mypage/', function (Request $request, Response $response) {
      } else {
          $data['events'] = [];
      }
+     
     return $this->view->render($response, 'mypage/index.twig', $data);
 });
 
@@ -38,12 +39,8 @@ $app->get('/user/{id}/', function (Request $request, Response $response, $args) 
         $data['events'] = [];
     }
 
-    // var_dump($data);
-    // exit;
-
     return $this->view->render($response, 'mypage/index.twig', $data);
 });
-
 
 $app->get('/mypage/edit', function (Request $request, Response $response) {
 
