@@ -39,7 +39,7 @@
                   <!-- イベント詳細の文字数が40字以上の場合，以降を…で省略する -->
                   {{ event.detail|length > 40 ? event.detail|slice(0, 40) ~ '…' : event.detail }}
                   <br>
-                   by <a href="/user/{{event.host.id}}">{{event.host.name}}</a><br>
+                   by <a href="/user/{{event.host.id}}/">{{event.host.name}}</a><br>
                  {{event.startDate}} より開始</li><br>
               {% endfor %}
             </ul>
