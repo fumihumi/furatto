@@ -5,6 +5,7 @@ use Slim\Http\Response;
 use Model\Dao\Event;
 use Model\Dao\User;
 use Model\Dao\EventUser;
+use Model\Dao\Chat;
 
 
 $app->get('/event/{id}', function (Request $request, Response $response, $args) {
@@ -14,6 +15,7 @@ $app->get('/event/{id}', function (Request $request, Response $response, $args) 
     $event = new Event($this->db);
     $user = new User($this->db);
     $eventUser = new EventUser($this->db);
+    $chat = new Chat($this->db);
 
     $data['event'] = $event->select(array("id" => $eventId));
 
@@ -32,6 +34,8 @@ $app->get('/event/{id}', function (Request $request, Response $response, $args) 
     $data['currentUser'] = $currentUser;
 
     $data['isJoin'] = in_array($currentUser['id'], array_column($data['users'], 'id'));
+
+    $data['messages'] = $chat->getChatByEventId($eventId);
 
     return $this->view->render($response, 'event/show.twig', $data);
 });

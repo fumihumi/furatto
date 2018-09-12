@@ -51,9 +51,15 @@
 
                 <ul class="list-group">
                     <li class="list-group-item">よろしくお願いします！</li>
-                    <li class="list-group-item">今日はまるまるします</li>
+                    <li class="list-group-item">今日はリーダブルコード読みます！</li>
                     <li class="list-group-item">python始めました！</li>
+                    <li class="list-group-item">DDDについて学んでます！！！！</li>
                     <li class="list-group-item">Progateレベル100超えました！</li>
+                    {% for message in messages %}
+                        <li class="list-group-item">
+                            {{message.content}}
+                        </li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class='col-sm-3 right-container'>
