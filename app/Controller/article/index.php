@@ -34,6 +34,7 @@ $app->post('/event/new/', function (Request $request, Response $response) {
     $id = $event->insert($data);
 
 
+
     // 登録完了ページを表示します。
     return $this->view->render($response, 'article/article_done.twig', $data);
     // return null;

@@ -10,7 +10,7 @@ $app->get('/', function (Request $request, Response $response) {
 
     $events_dao = new Event($this->db);
     $users_dao = new User($this->db);
-    $events = $events_dao->select([], "startDate", "DESC", 10, true);
+    $events = $events_dao->select([], "startDate", "DESC", 1000000000, true);
 
     // 登録されたeventごとに紐づけられたuserのnameを取り出し，hostに格納する
     foreach($events as $key => $event)

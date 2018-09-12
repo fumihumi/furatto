@@ -1,3 +1,33 @@
+input.chat {
+  width: 300px;
+  height: 60px;
+}
+
+.profile {
+  padding: 0;
+  position: relative;
+}
+
+.profile {
+  /* color: black;
+  border-left: solid 8px orange;
+  background: whitesmoke;
+  margin-bottom: 5px;
+  line-height: 1.5;
+  border-radius: 0 15px 15px 0;
+  padding: 0.5em;
+  list-style-type: none!important; */
+  color: black;
+  border-left: solid 12px #2d8fdd;/*左側の線*/
+  background: whitesmoke;/*背景色*/
+  margin-bottom: 5px;/*下のバーとの余白*/
+  line-height: 1.5;
+  border-radius: 0 15px 15px 0;/*右側の角だけ丸く*/
+  padding: 0.5em;
+  list-style-type: none!important;
+}
+
+
 .square_btn{
     display: inline-block;
     padding: 0.5em 1em;
@@ -122,6 +152,17 @@ body {
     border-radius:  2px;        /* 角丸指定 */
 }
 
+.postit-profile {
+    margin:  0;                 /* デフォルトCSS打ち消し */
+    font-size:  24px;           /* 文字サイズ指定 */
+    position:  relative;        /* 位置調整 */
+    font-weight:  normal;       /* 文字の太さ調整 */
+    display:  inline-block;     /* インラインブロックにする */
+    padding:  10px;             /* 余白指定 */
+    margin-bottom: 15px;        /* 周りの余白指定 */
+    border-radius:  2px;        /* 角丸指定 */
+}
+
 
 .postit:before {
     content:  '';               /* 空白の要素を作る */
@@ -237,11 +278,11 @@ color: #cee1e9;
 }
 
 .main{
+ margin-bottom: 40px;
  position: relative;
  color: #4e555f;
  line-height: 1.4;
  -webkit-box-reflect: below -10px -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0) 10%,rgba(0, 0, 0, 0.6));
- /* background-image: url("main.jpg"); */
 }
 
 .top{

@@ -15,6 +15,10 @@ $app->post('/event/{id}/participate/', function (Request $request, Response $res
     $userInfo = $this->session["user_info"];
     $currentUserId = $userInfo['id'];
 
+    if (empty($currentUserId)) {
+        return $response->withRedirect("/event/".$eventId);
+    }
+
     // ここで参加する処理する
     // flg == 1 だったら参加して０なら削除する??????
     // 一旦参加だけなので FIXME

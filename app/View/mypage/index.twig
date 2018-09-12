@@ -2,7 +2,7 @@
 {% extends "layout/layout.twig" %}
 
 {#HTMLのタイトルを定義します。#}
-{% block title %}ユーザー情報{% endblock %}
+{% block title %}{{user.name}}のマイページ{% endblock %}
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
@@ -10,7 +10,7 @@
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
-
+<link href="/assets/css/common.css" rel="stylesheet">
 
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -22,13 +22,12 @@
       <div class="box">
           <div class="row">
 
-              <ul class="user_info">
+              <ul class="profile">
 
                 {% if user.name == null %}                　
                 {% else %}
 
-                  <li class="postit">名前：{{user.name}}</li>
-
+                  <li class="postit-profile">名前：{{user.name}}</li>
                 {% endif %}
 
                 {% if user.email == null %}
@@ -66,7 +65,6 @@
                     {% endfor %}
                   </li>
                 {% endif %}
-
                 {% if categories %}
                     <li>興味のあるTag:
                       {% for category in categories %}
@@ -83,6 +81,20 @@
                 {% endif %}
 
 
+                {% if categories %}
+                    <li>興味のあるTag:
+                      {% for category in categories %}
+                        <span class='btn category'>{{category}}</span>
+                      {% endfor %}
+                    </li>
+                {% endif %}
+
+                {% if is_mypage %}
+                <form action="#"	onsubmit="alert('テストのため送信しません');return false;" onreset="alert('フォームをリセットします')">
+		                    <button type="button" class="btn btn-info">ユーザー情報を編集する</button>
+
+		            </form>
+                {% endif %}
               </ul>
             </div>
         </div>
