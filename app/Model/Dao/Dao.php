@@ -201,11 +201,6 @@ abstract class Dao
             } else {
                 //idというカラム名の場合は、更新するIDを指定します
 
-                var_dump(
-                  $key,
-                  $val
-                );
-
 
                 // $queryBuilder->where($key, ":$key");
                 $queryBuilder->where("$key = :$key");
