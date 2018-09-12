@@ -23,15 +23,9 @@
     <div class="container user-show">
 
     <div class='col-sm-8'>
-        <div class="postit">オーナー名</div><br>
+        <div class="postit">主催者</div><br>
         <div class='detail mt-2 mb-2'>
-            {% if owner.twitter_id is null %}
-                {{owner.name}}
-            {% else %}
-                <a href="https://twitter.com/{{owner.twitter_id}}" target='_blank'>
-                    <i class="fa fa-twitter-square"></i>  {{owner.name}}
-                </a>
-            {% endif %}
+            <a href="/user/{{event.user_id}}/">{{owner.name}}</a>
         </div>
 
         <p class='categories'>
