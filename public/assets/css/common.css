@@ -9,8 +9,16 @@ input.chat {
 }
 
 .profile {
+  /* color: black;
+  border-left: solid 8px orange;
+  background: whitesmoke;
+  margin-bottom: 5px;
+  line-height: 1.5;
+  border-radius: 0 15px 15px 0;
+  padding: 0.5em;
+  list-style-type: none!important; */
   color: black;
-  border-left: solid 8px orange;/*左側の線*/
+  border-left: solid 12px #2d8fdd;/*左側の線*/
   background: whitesmoke;/*背景色*/
   margin-bottom: 5px;/*下のバーとの余白*/
   line-height: 1.5;
@@ -139,6 +147,17 @@ body {
     font-weight:  normal;       /* 文字の太さ調整 */
     display:  inline-block;     /* インラインブロックにする */
     background-color: #feeaac;  /* 背景色指定 */
+    padding:  10px;             /* 余白指定 */
+    margin-bottom: 15px;        /* 周りの余白指定 */
+    border-radius:  2px;        /* 角丸指定 */
+}
+
+.postit-profile {
+    margin:  0;                 /* デフォルトCSS打ち消し */
+    font-size:  24px;           /* 文字サイズ指定 */
+    position:  relative;        /* 位置調整 */
+    font-weight:  normal;       /* 文字の太さ調整 */
+    display:  inline-block;     /* インラインブロックにする */
     padding:  10px;             /* 余白指定 */
     margin-bottom: 15px;        /* 周りの余白指定 */
     border-radius:  2px;        /* 角丸指定 */

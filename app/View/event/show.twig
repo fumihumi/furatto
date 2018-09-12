@@ -11,7 +11,6 @@
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
     <link href="/assets/css/event/show.css" rel="stylesheet">
-    <link href="/assets/css/common.css" rel="stylesheet">
     <div class="page-header text-center user-show-header">
         <h1 class="head_test">{{event.title}}</h1>
         {% if event.user_id == currentUser.id %}
