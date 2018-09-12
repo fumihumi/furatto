@@ -12,59 +12,72 @@
 {% block page_content %}
     <div class="page-header text-center ">
         <link href="/assets/css/mypage.css" rel="stylesheet">
-        <h1>ふらっと開催！オンライン勉強会</h1>
+        <div class="page-header text-center">
+            <title>ふらっと開催！オンライン勉強会</title>
+            <h1 class="main">ふらっと開催！オンライン勉強会</h1>
     </div>
 
     <div class="panel panel-default">
 <div class="panel-heading">
-    <h3 class="panel-title">ユーザー情報</h3>
-  </div>
+  <h2 class="head-name">ユーザー情報</h2>
+</div>
   <div class="panel-body">
     <div class="container">
       <div class="box">
           <div class="row">
-              ユーザー情報
-              <ul>
 
-                {% if name == null %}                　
+              <ul class="user_info">
+
+                {% if user.name == null %}                　
                 {% else %}
-                  <li>名前：{{name}}</li>
+                  <li>名前：{{user.name}}</li>
                 {% endif %}
 
-                {% if email == null %}
+                {% if user.email == null %}
                 {% else %}
-                　<li>email：{{email}}  </li>
+                　<li>email：{{user.email}}  </li>
                 {% endif %}
 
-                {% if profile  == null %}
+                {% if user.profile  == null %}
                 {% else %}
-              　  <li>自己紹介：{{profile}}  </li>
+              　  <li>自己紹介：{{user.profile}}  </li>
                 {% endif %}
 
-                {% if twitter_id  == null %}
+                {% if user.twitter_id  == null %}
                 {% else %}
-                　　<li>twitter ID：<a href="https://twitter.com/{{twitter_id}}" target="_blank">{{twitter_id}}</a></li>
+                　　<li><i class="fa fa-twitter-square"></i>：<a href="https://twitter.com/{{user.twitter_id}}" target="_blank">{{user.twitter_id}}</a></li>
                 {% endif %}
 
-                {% if github_id == null %}
+                {% if user.github_id == null %}
                 {% else %}
-              　   <li> github ID：<a href="https://github.com/{{github_id}}" target="_blank">{{github_id}} </a></li>
+              　   <li> <i class="fa fa-github"></i>：<a href="https://github.com/{{user.github_id}}" target="_blank">{{user.github_id}} </a></li>
                 {% endif %}
 
-                {% if qiita_id  is defined %}
+                {% if user.qiita_id == null %}
                 {% else %}
-            　  　  <li>Qiita ID：{{qiita_id}}</li>
+            　  　  <li>Qiita ID：{{user.qiita_id}}</li>
                 {% endif %}
+
+                <p>参加イベント</p>
+                {% for event in events %}
+                  <li>
+                    <a href="/event/{{event.id}}">
+                      {{event.title}}
+                    </a>
+                  </li>
+                {% endfor %}
 
               </ul>
             </div>
         </div>
       </div>
   </div>
+<!-- <a href="/mypage/edit/">ユーザー情報の編集</a> -->
+
 </div>
 
 
 {% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}
-{% block footer_scripts_add %}aa{% endblock %}
+{% block footer_scripts_add %}{% endblock %}
