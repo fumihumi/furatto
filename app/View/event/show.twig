@@ -11,97 +11,65 @@
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
     <link href="/assets/css/event/show.css" rel="stylesheet">
-    <link href="/assets/css/common.css" rel="stylesheet">
     <div class="page-header text-center user-show-header">
-        <h1 class="head_test">{{event.title}}</h1>
+        <h1>{{event.title}}</h1>
     </div>
     <div class="container user-show">
             <div class="row col-sm-1"></div>
             <div class="row col-sm-8">
-              <h3 class='postit'>主催者</h3><br>
-              <a href="/user/{{owner.id}}">{{owner.name}}</a></h3>
-              <p class='owner-sns'>
-                  {% if owner.twitter_id is null %}
-                  {% else %}
-                      <a href="https://twitter.com/{{owner.twitter_id}}" target='_blank'>
-                          <div class='twitter btn'>
-                              <i class="fa fa-twitter-square"></i>{{owner.twitter_id}}
-                          </div>
-                      </a>
-                  {% endif %}
-                  {% if owner.github_id is null %}
-                  {% else %}
-                      <a href="https://github.com/{{owner.github_id}}" target='_blank'>
-                          <div class='github btn'>
-                              <i class="fa fa-github"></i> {{owner.github_id}}
-                          </div>
-                      </a>
-                  {% endif %}
-                  {# {{owner.qiita_id}} #}
-              </p>
                 <p class='categories'>
-                    <div class="postit">タグ</div><br>
+                    tags :
                     {% for category in event.categories | split(', ') %}
                         <span class='btn category'>{{category}}</span>
                     {% endfor %}
-                </p><br>
-                <p class="postit">詳細</p>
+                </p>
+
                 <div class='detail mt-2 mb-2'>
                     {{event.detail}}
                 </div>
-            <p class="postit">チャット</p>
-            <div class="chat">
-              <!-- 左からの吹き出し -->
-              <div class="kaiwa">
-               <div class="kaiwa-text-right">
-                 <p class="kaiwa-text">
-               よろしくお願いします！
-                 </p>
-               </div>
-              </div>
-              <!-- 右からの吹き出し -->
-            {% for message in messages %}
-                 <!-- TODO currentuserなら <div class="kaiwa-text-right">-->
-                 <div class="kaiwa">
-                  <div class="kaiwa-text-left">
-                    <p class="kaiwa-text">
-                      {{message.content}}
-                    </p>
-                  </div>
-                 </div>
-            {% endfor %}
-                <div class='panel-footer schedule-action text-center'>
-                  <form id="newChatContentForm" method="POST" action="/event/{{event.id}}/chat/">
-                      <input name="content" type='text' placeholder='メッセージ内容'>
-                      <button type='submit'class='btn-submit'>メッセージを送る</button>
-                  </form>
-                </div>
-            </div>
 
+                <h3 class='owner mb-3'><a href=Owner: {{owner.name}/}</h3>
+                <p class='owner-sns'>
+                    {% if owner.twitter_id is null %}
+                    {% else %}
+                        <a href="https://twitter.com/{{owner.twitter_id}}" target='_blank'>
+                            <div class='twitter btn'>
+                                <i class="fa fa-twitter-square"></i>{{owner.twitter_id}}
+                            </div>
+                        </a>
+                    {% endif %}
+                    {% if owner.github_id is null %}
+                    {% else %}
+                        <a href="https://github.com/{{owner.github_id}}" target='_blank'>
+                            <div class='github btn'>
+                                <i class="fa fa-github"></i> {{owner.github_id}}
+                            </div>
+                        </a>
+                    {% endif %}
+                    {# {{owner.qiita_id}} #}
+                </p>
+
+                <ul class="list-group">
+                    <li class="list-group-item">よろしくお願いします！</li>
+                    <li class="list-group-item">今日はまるまるします</li>
+                    <li class="list-group-item">python始めました！</li>
+                    <li class="list-group-item">Progateレベル100超えました！</li>
+                </ul>
             </div>
             <div class='col-sm-3 right-container'>
             <div class="panel panel-default date">
                 <div class="panel-heading">
-                     開催期間
+                    時間だよ〜〜〜〜〜〜
                 </div>
+
                 <div class="panel-body ">
-                  <p>開始時間<br />{{event.startDate}}</p>
-                  <p>終了予定時間<br />{{event.endDate}}</p>
+                    <p>{{event.startDate}}</p>
+                    <p>{{event.endDate}}</p>
                 </div>
 
                 <div class='panel-footer schedule-action text-center'>
-                  {% if isJoin == true %}
-                       <p>
-                           <button class='btn-submit'>欠席する</button>
-                       </p>
-                   {% else %}
-                       <p>
-                           <form id="participateForm" method="POST" action="/event/{{event.id}}/participate/">
-                               <!-- <input type="hidden"  name="participate" id="participate" value="1" checked> -->
-                               <button type="submit"class='btn-submit'>参加する</button>
-                           </form>
-                       </p>
-                   {% endif %}
+                    <p><button class='btn btn-primary'>参加する</button></p>
+                    <p><button class='btn btn-warning'>欠席する</button></p>
                 </div>
             </div>
 
@@ -126,7 +94,7 @@
                 {#
                     // FIXME commentとか入れる？
                     <div class='panel-footer schedule-action text-center'>
-                        <p><button class='btn-submit'>参加する</button></p>
+                        <p><button class='btn btn-primary'>参加する</button></p>
                         <p><button class='btn btn-warning'>欠席する</button></p>
                     </div>
                 #}
