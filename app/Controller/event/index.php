@@ -18,15 +18,13 @@ $app->post('/event/{id}/participate/', function (Request $request, Response $res
     // ここで参加する処理する
     // flg == 1 だったら参加して０なら削除する??????
     // 一旦参加だけなので FIXME
+    // $flg = $params['participate'];
 
-    $flg = $params['participate'];
+    $eventUserData = array(
+        'user_id' => $currentUserId,
+        'event_id' => $eventId
+    );
 
-    if ($flg == 1) {
-        $eventUserData = array(
-            'user_id' => $currentUserId,
-            'event_id' => $eventId
-        );
-    }
 
     $eventUsers = new EventUser($this->db);
     $eventUsers->insert($eventUserData);
