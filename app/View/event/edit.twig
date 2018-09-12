@@ -2,7 +2,7 @@
 {% extends "layout/layout.twig" %}
 
 {#HTMLのタイトルを定義します。#}
-{% block title %}新規会員登録{% endblock %}
+{% block title %}イベント内容編集{% endblock %}
 
 {# このページに適用させたいスタイルシートを指定します #}
 {% block header_scripts_add %}
@@ -10,31 +10,52 @@
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
-  <div class="box">
     <div class="page-header text-center">
-        <h1>投稿内容編集</h1>
+        <h1>イベント内容編集</h1>
     </div>
     <div class="container">
       <div class="box">
         <div class="row">
           <div class="col-md-12">
             <div class="well">
-              <form id="loginForm" method="POST" action="/event/edit/">
+              <form id="loginForm" method="POST" action="/event/{{id}}/">
                 {% if error %}
                   <div class="form-group">
                     <div class="alert alert-danger" role="alert">{{ error }}</div>
-                  </div>
+                      </div>
                 {% endif %}
-                    <label for="title" class="control-label">タイトル</label>
-                    <textarea type="text" class="form-control" id="profile" name="profile" value="{{ profile }}" title="Please enter your profile" placeholder="自己紹介"></textarea>
-                <button type="submit" class="btn btn-info btn-block">編集完了</button>
+
+                <div class="form-group">
+                  <input type="hidden"  id="id" name="id" value="{{ id }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="control-label"><span class="btn-xs round btn-danger">必須</span> イベント名</label>
+                    <input type="text" class="form-control" id="title" name="title" value="{{ title }}" required title="Please enter your title" placeholder="タイトル">
+                </div>
+                <div class="form-group">
+                    <label for="password" class="control-label"><span class="btn-xs round btn-danger">必須</span> 開始日時</label>
+                    <input type="datetime-local" class="form-control" id="startDate" name="startDate" value="{{ startDate }}" required title="Please enter startDate" placeholder="start">
+                </div>
+                <div class="form-group">
+                    <label for="password" class="control-label"><span class="btn-xs round btn-danger">必須</span> 終了日時</label>
+                    <input type="datetime-local" class="form-control " id="endDate" name="endDate" value="{{ endDate }}" title="Please enter endDate" placeholder="end">
+                </div>
+                <div class="form-group">
+                    <label for="password" class="control-label"> 詳細</label>
+                    <textarea type="text" class="form-control" id="detail" name="detail" title="Please enter detail" placeholder="イベント内容の説明"> {{detail}} </textarea>
+                <div class="form-group">
+                    <label for="password" class="control-label"> カテゴリ</label>
+                    <input type="text" class="form-control" id="categories" name="categories" value="{{ categories }}" title="Please enter your profile" placeholder="例) PHP,もくもく会,初心者歓迎">
+                </div>
+
+                <button type="submit" class="btn btn-info btn-block">編集</button>
             </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-  </div>
 {% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}

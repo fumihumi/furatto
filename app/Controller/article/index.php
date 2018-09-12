@@ -30,11 +30,8 @@ $app->post('/event/new/', function (Request $request, Response $response) {
     $user_info = $this->session["user_info"];
     $data = $data + array('user_id' => $user_info["id"]);
 
-    var_dump($data);
-
     //DBに登録をする。戻り値は自動発番されたIDが返ってきます
     $id = $event->insert($data);
-
 
 
     // 登録完了ページを表示します。
