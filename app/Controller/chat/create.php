@@ -9,6 +9,10 @@ $app->post('/event/{id}/chat/', function (Request $request, Response $response, 
     $eventId = $args["id"];
     $params = $request->getParsedBody();
 
+    if (empty(trim($params['content']))){
+      return $response->withRedirect("/event/".$eventId);
+    }
+
     $userInfo = $this->session["user_info"];
     $currentUserId = $userInfo['id'];
 
