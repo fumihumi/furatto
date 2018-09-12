@@ -23,15 +23,9 @@
     <div class="container user-show">
 
     <div class='col-sm-8'>
-        <div class="postit">オーナー名</div><br>
+        <div class="postit">主催者</div><br>
         <div class='detail mt-2 mb-2'>
-            {% if owner.twitter_id is null %}
-                {{owner.name}}
-            {% else %}
-                <a href="https://twitter.com/{{owner.twitter_id}}" target='_blank'>
-                    <i class="fa fa-twitter-square"></i>  {{owner.name}}
-                </a>
-            {% endif %}
+            <a href="/user/{{event.user_id}}/">{{owner.name}}</a>
         </div>
 
         <p class='categories'>
@@ -116,8 +110,7 @@
             <div class="panel-body ">
                 {% for user in users %}
                     {% if user.twitter_id is null %}
-                        {# TODO user/{id} にとばしたい π#}
-                        <span class='btn category'>{{user.name}}</span>
+                        <a class='btn category' href="/user/{{user.id}}/">{{user.name}}</a>
                     {% else %}
                         <a class='btn category' href="https://twitter.com/{{user.twitter_id}}" target='_blank'>
                             <i class="fa fa-twitter-square"></i>{{user.twitter_id}}
