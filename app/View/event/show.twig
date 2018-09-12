@@ -60,6 +60,22 @@
                             {{message.content}}
                         </li>
                     {% endfor %}
+                    <div class='panel-footer schedule-action text-center'>
+                        {% if isJoin == true %}
+                            <li>
+                                <form id="newChatContentForm" method="POST" action="/event/{{event.id}}/chat/">
+                                    <input type='text' placeholder='hogehoge' name='content'>
+                                    <button type='submit'class='btn btn-info'>メッセージを送る</button>
+                                </form>
+                            </li>
+                        {% else %}
+                            <li>
+                                <form id="participateForm2" method="POST" action="/event/{{event.id}}/participate/">
+                                    <buttosn type="submit"class='btn btn-primary'>参加する</button>
+                                </form>
+                            </li>
+                        {% endif %}
+                    </div>
                 </ul>
             </div>
             <div class='col-sm-3 right-container'>
