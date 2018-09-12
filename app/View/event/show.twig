@@ -17,19 +17,6 @@
     </div>
 
     <div class="container user-show">
-        <div class="row col-sm-1"></div>
-        <div class="row col-sm-8">
-            <h3 class='postit'>主催者</h3><br>
-            <a href="/user/{{owner.id}}">{{owner.name}}</a></h3>
-            <p class='owner-sns'>
-                {% if owner.twitter_id is null %}
-                {% else %}
-                    <a href="https://twitter.com/{{owner.twitter_id}}" target='_blank'>
-                        <div class='twitter btn'>
-                            <i class="fa fa-twitter-square"></i>{{owner.twitter_id}}
-                        </div>
-                    </a>
-                {% endif %}
 
                 {% if owner.github_id is null %}
                 {% else %}
@@ -55,7 +42,7 @@
             </div>
 
             <p class="postit">チャット</p>
-
+            <center><a href="/event/{{event.id}}" class="square_btn39">最新の状態に更新する</a></center><br>
             <div class="chat">
                 {% for message in messages %}
                     <!-- TODO currentuserなら <div class="kaiwa-text-right">-->
