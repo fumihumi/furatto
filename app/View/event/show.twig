@@ -56,13 +56,13 @@
                     {% if currentUser.id == message.user_id %}
                         <div class="kaiwa-text-left">
                             <p class="kaiwa-text">
-                                {{message.content}}
+                                {{message.content | raw}}
                             </p>
                         </div>
                     {% else %}
                         <div class="kaiwa-text-right">
                             <p class="kaiwa-text">
-                                {{message.content}}
+                                {{message.content | raw}}
                             </p>
                         </div>
                     {% endif %}
@@ -72,7 +72,7 @@
 
         <div class='panel-footer schedule-action text-center'>
             <form id="newChatContentForm" method="POST" action="/event/{{event.id}}/chat/">
-                <input name="content" type='text' placeholder='メッセージ内容'>
+                <input class="chat" name="content" type='text' placeholder='メッセージ内容'>
                 <button type='submit'class='btn-submit'>メッセージを送る</button>
             </form>
         </div>
@@ -90,7 +90,7 @@
 
         <div class='panel-footer schedule-action text-center'>
             {% if isJoin == true %}
-                <p><button class='btn-submit'>欠席する</button></p>
+                <p class='btn-submit'>参加予定</p>
             {% else %}
                 <p>
                     <form id="participateForm" method="POST" action="/event/{{event.id}}/participate/">
