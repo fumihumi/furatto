@@ -63,23 +63,13 @@
                 </div>
 
                 <div class="panel-body ">
-                    <p>開始時間<br />{{event.startDate}}</p>
-                    <p>終了予定時間<br />{{event.endDate}}</p>
+                    <p>{{event.startDate}}</p>
+                    <p>{{event.endDate}}</p>
                 </div>
 
                 <div class='panel-footer schedule-action text-center'>
-                    {% if isJoin == true %}
-                        <p>
-                            <button class='btn btn-warning'>欠席する</button>
-                        </p>
-                    {% else %}
-                        <p>
-                            <form id="participateForm" method="POST" action="/event/{{event.id}}/participate/">
-                                <input type="hidden"  name="participate" id="participate" value="1" checked>
-                                <buttosn type="submit"class='btn btn-primary'>参加する</button>
-                            </form>
-                        </p>
-                    {% endif %}
+                    <p><button class='btn btn-primary'>参加する</button></p>
+                    <p><button class='btn btn-warning'>欠席する</button></p>
                 </div>
             </div>
 
