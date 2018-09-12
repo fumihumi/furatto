@@ -2,7 +2,7 @@
 {% extends "layout/layout.twig" %}
 
 {#HTMLのタイトルを定義します。#}
-{% block title %}TOP{% endblock %}
+{% block title %}ユーザー情報{% endblock %}
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
@@ -11,8 +11,9 @@
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
 <link href="/assets/css/common.css" rel="stylesheet">
-    <div class="panel panel-default">
-<div class="panel-heading">
+
+<div class="panel panel-default">
+  <div class="panel-heading">
     <h3 class="panel-title">ユーザ情報</h3>
   </div>
 
