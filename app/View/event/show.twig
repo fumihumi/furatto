@@ -24,14 +24,16 @@
     <div class="container user-show">
 
     <div class='col-sm-8'>
-        {% if owner.github_id is null %}
-        {% else %}
-            <a href="https://github.com/{{owner.github_id}}" target='_blank'>
-                <div class='github btn'>
-                    <i class="fa fa-github"></i> {{owner.github_id}}
-                </div>
-            </a>
-        {% endif %}
+        <div class="postit">オーナー名</div><br>
+        <div class='detail mt-2 mb-2'>
+            {% if owner.twitter_id is null %}
+                {{owner.name}}
+            {% else %}
+                <a href="https://twitter.com/{{owner.twitter_id}}" target='_blank'>
+                    <i class="fa fa-twitter-square"></i>  {{owner.name}}
+                </a>
+            {% endif %}
+        </div>
 
         <p class='categories'>
             <div class="postit">タグ</div><br>
@@ -93,10 +95,15 @@
                 <p class='btn-submit'>参加予定</p>
             {% else %}
                 <p>
-                    <form id="participateForm" method="POST" action="/event/{{event.id}}/participate/">
-                        <!-- <input type="hidden"  name="participate" id="participate" value="1" checked> -->
-                        <button type="submit"class='btn-submit'>参加する</button>
-                    </form>
+                    {% if  currentUser.id is null %}
+                        <a href="/login/">ログインしてください。</a>
+                    {% else %}
+                        <form id="participateForm" method="POST" action="/event/{{event.id}}/participate/">
+                            <!-- <input type="hidden"  name="participate" id="participate" value="1" checked> -->
+                            <button type="submit"class='btn-submit'>参加する</button>
+                        </form>
+                    {% endif %}
+
                 </p>
             {% endif %}
         </div>
