@@ -10,6 +10,7 @@
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
+    <link href="/assets/css/common.css" rel="stylesheet">
     <div class="page-header text-center">
         <h1>新規作成</h1>
     </div>
@@ -43,7 +44,7 @@
                                 <label for="password" class="control-label"> カテゴリ</label>
                                 <input type="text" class="form-control" id="categories" name="categories" value="{{ categories }}" title="Please enter your profile" placeholder="例) PHP,もくもく会,初心者歓迎">
                               </div>
-                            <button type="submit" class="btn btn-info btn-block">作成</button>
+                            <center><button type="submit" class="btn-submit">作成</button></center>
                         </form>
                     </div>
                 </div>

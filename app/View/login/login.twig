@@ -10,6 +10,7 @@
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
+    <link href="/assets/css/common.css" rel="stylesheet">
     <div class="page-header text-center">
         <h1>ログイン</h1>
     </div>
@@ -32,22 +33,22 @@
                                     <div class="alert alert-danger" role="alert">{{ error }}</div>
                                 </div>
                             {% endif %}
-                            <button type="submit" class="btn btn-success btn-block">ログイン</button>
+                            <center><button type="submit" class="btn-submit">ログイン</button></center>
                         </form>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <p class="lead">会員登録は <span class="text-success">無料</span> 今すぐ登録！</p>
+                    <p class="lead">会員登録は <span class="text-success">無料</span></p>
                     <ul class="list-unstyled">
-                        <li><span class="fa fa-check text-success"></span> すべての注文が見れます。</li>
+                        <!-- <li><span class="fa fa-check text-success"></span> すべての注文が見れます。</li>
                         <li><span class="fa fa-check text-success"></span> 早い追加注文。</li>
                         <li><span class="fa fa-check text-success"></span> お気に入りを保存できます。</li>
                         <li><span class="fa fa-check text-success"></span> 素早い購入。</li>
-                        <li><span class="fa fa-check text-success"></span> クーポンプレゼント
-                            <small>(カスタマー限定)</small>
+                        <li><span class="fa fa-check text-success"></span> クーポンプレゼント -->
+                            <!-- <small>(カスタマー限定)</small> -->
                         </li>
                     </ul>
-                    <p><a href="/register/" class="btn btn-info btn-block">今すぐ登録</a></p>
+                    <p><center><a href="/register/" class="btn-submit">今すぐ登録</a></center></p>
                 </div>
             </div>
         </div>

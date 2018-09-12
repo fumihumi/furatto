@@ -5,7 +5,7 @@ use Model\Dao\Event;
 
 $app->get('/event/{id}/edit/', function (Request $request, Response $response, $args) {
   //GETされた内容を取得します。
-  var_dump($args['id']);
+  $args['id'];
 
   // $data = $request->getQueryParams();
 
@@ -21,8 +21,6 @@ $app->get('/event/{id}/edit/', function (Request $request, Response $response, $
 
   $endDate = str_replace(" ", "T", $data["endDate"]);
   $data["endDate"] = $endDate;
-
-  var_dump($data);
 
   // Render index view
   return $this->view->render($response, 'event/edit.twig', $data);
