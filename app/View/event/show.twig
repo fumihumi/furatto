@@ -51,31 +51,8 @@
 
                 <ul class="list-group">
                     <li class="list-group-item">よろしくお願いします！</li>
-                    <li class="list-group-item">今日はリーダブルコード読みます！</li>
                     <li class="list-group-item">python始めました！</li>
-                    <li class="list-group-item">DDDについて学んでます！！！！</li>
                     <li class="list-group-item">Progateレベル100超えました！</li>
-                    {% for message in messages %}
-                        <li class="list-group-item">
-                            {{message.content}}
-                        </li>
-                    {% endfor %}
-                    <div class='panel-footer schedule-action text-center'>
-                        {% if isJoin == true %}
-                            <li>
-                                <form id="newChatContentForm" method="POST" action="/event/{{event.id}}/chat/">
-                                    <input type='text' placeholder='hogehoge' name='content'>
-                                    <button type='submit'class='btn btn-info'>メッセージを送る</button>
-                                </form>
-                            </li>
-                        {% else %}
-                            <li>
-                                <form id="participateForm2" method="POST" action="/event/{{event.id}}/participate/">
-                                    <buttosn type="submit"class='btn btn-primary'>参加する</button>
-                                </form>
-                            </li>
-                        {% endif %}
-                    </div>
                 </ul>
             </div>
             <div class='col-sm-3 right-container'>
