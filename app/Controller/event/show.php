@@ -25,10 +25,13 @@ $app->get('/event/{id}', function (Request $request, Response $response, $args) 
     if (count($userIds) > 0) {
         $data['users'] = $user->getUsersByIds($userIds);
     } else {
-      $data['users'] = [];
+        $data['users'] = [];
     }
 
-    $event = new User($this->db);
+    $currentUser = $this->session["user_info"];
+    $data['currentUser'] = $currentUser;
+
+    $data['isJoin'] = in_array($currentUser['id'], array_column($data['users'], 'id'));
 
     return $this->view->render($response, 'event/show.twig', $data);
 });
