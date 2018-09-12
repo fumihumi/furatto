@@ -22,10 +22,13 @@ $app->get('/event/{id}', function (Request $request, Response $response, $args) 
 
     $userIds = $eventUser->getUserIdsByEventId($eventId);
 
-    $event = new User($this->db);
-    $data['users'] = $user->getUsersByIds($userIds);
+    if (count($userIds) > 0) {
+        $data['users'] = $user->getUsersByIds($userIds);
+    } else {
+      $data['users'] = [];
+    }
 
+    $event = new User($this->db);
 
     return $this->view->render($response, 'event/show.twig', $data);
 });
-
