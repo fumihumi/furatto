@@ -26,7 +26,7 @@
                 {% if user.name == null %}                　
                 {% else %}
 
-                  <li>名前：{{user.name}}</li>
+                  <li class="postit">名前：{{user.name}}</li>
 
                 {% endif %}
 
@@ -54,26 +54,36 @@
                 {% else %}
             　  　  <li>Qiita ID：{{user.qiita_id}}</li>
                 {% endif %}
-                <br>
-                <p>参加イベント</p>
-                {% for event in events %}
-                  <li>
-                    <a href="/event/{{event.id}}">
-                      {{event.title}}
-                    </a>
-                  </li>
-                {% endfor %}
 
-                <p>興味のあるTag</p>
+                {% if events %}
 
-                <li>
-                  {% for event in events %}
-                    {% for category in event.categories | split(', ') %}
-                      <span class='btn category'>{{category}}</span>
+                  <li>参加イベント:
+                    {% for event in events %}
+                        <a href="/event/{{event.id}}">
+                          {{event.title}}
+                        </a>
                     {% endfor %}
-                  {% endfor %}
-                </li>
+                  </li>
+                {% endif %}
 
+                {% if categories %}
+                    <li>興味のあるTag:
+                      {% for category in categories %}
+                        <span class='btn category'>{{category}}</span>
+                      {% endfor %}
+                    </li>
+                {% endif %}
+
+                {% if is_mypage %}
+                <form action="#"	onsubmit="alert('テストのため送信しません');return false;" onreset="alert('フォームをリセットします')">
+                  <p>
+                      <input type="text" value="" />
+                  </p>
+                  <p>
+                    <button type="button">ユーザー情報を編集する</button>
+                  </p>
+		            </form>
+                {% endif %}
               </ul>
             </div>
         </div>
