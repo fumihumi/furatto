@@ -59,12 +59,12 @@
             <div class='col-sm-3 right-container'>
             <div class="panel panel-default date">
                 <div class="panel-heading">
-                    時間だよ〜〜〜〜〜〜
+                    開催期間
                 </div>
 
                 <div class="panel-body ">
-                    <p>{{event.startDate}}</p>
-                    <p>{{event.endDate}}</p>
+                    <p>開始時間<br />{{event.startDate}}</p>
+                    <p>終了予定時間<br />{{event.endDate}}</p>
                 </div>
 
                 <div class='panel-footer schedule-action text-center'>
@@ -90,7 +90,7 @@
 
                 <div class="panel-body ">
                     {% for user in users %}
-                        {% if user.twitter_id is null %}j
+                        {% if user.twitter_id is null %}
                             {# TODO user/{id} にとばしたい π#}
                             <span class='btn category'>{{user.name}}</span>
                         {% else %}
