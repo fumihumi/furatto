@@ -181,10 +181,10 @@ color: #cee1e9;
 
 .main{
  position: relative;
- color: #635074;/*#153c6e;*/
+ color: #4e555f;
  line-height: 1.4;
  -webkit-box-reflect: below -10px -webkit-linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0) 10%,rgba(0, 0, 0, 0.6));
- background-image: url("back_test.jpg");
+ /* background-image: url("main.jpg"); */
 }
 
 .top{

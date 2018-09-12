@@ -50,7 +50,6 @@
                     {{event.detail}}
                 </div>
             <p class="postit">チャット</p>
-
             <div class="chat">
               <!-- 左からの吹き出し -->
               <div class="kaiwa">
@@ -61,25 +60,16 @@
                </div>
               </div>
               <!-- 右からの吹き出し -->
-
             {% for message in messages %}
                  <!-- TODO currentuserなら <div class="kaiwa-text-right">-->
-                <div class="kaiwa">
+                 <div class="kaiwa">
                   <div class="kaiwa-text-left">
-                  　<p class="kaiwa-text">
-                  　　{{message.content}}
-      　　　　　　　　</p>
+                    <p class="kaiwa-text">
+                      {{message.content}}
+                    </p>
                   </div>
-                </div>
+                 </div>
             {% endfor %}
-
-
-                <!-- <ul class="list-group">
-                    <li class="list-group-item">よろしくお願いします！</li>
-                    <li class="list-group-item">今日はまるまるします</li>
-                    <li class="list-group-item">python始めました！</li>
-                    <li class="list-group-item">Progateレベル100超えました！</li>
-                </ul> -->
                 <div class='panel-footer schedule-action text-center'>
                   <form id="newChatContentForm" method="POST" action="/event/{{event.id}}/chat/">
                       <input name="content" type='text' placeholder='メッセージ内容'>
@@ -94,7 +84,6 @@
                 <div class="panel-heading">
                      開催期間
                 </div>
-
                 <div class="panel-body ">
                   <p>開始時間<br />{{event.startDate}}</p>
                   <p>終了予定時間<br />{{event.endDate}}</p>
@@ -103,7 +92,7 @@
                 <div class='panel-footer schedule-action text-center'>
                   {% if isJoin == true %}
                        <p>
-                           <button class='btn btn-warning'>欠席する</button>
+                           <button class='btn-submit'>欠席する</button>
                        </p>
                    {% else %}
                        <p>
