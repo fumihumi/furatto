@@ -90,7 +90,7 @@
 
         <div class='panel-footer schedule-action text-center'>
             {% if isJoin == true %}
-                <p><button class='btn-submit'>欠席する</button></p>
+                <p class='btn-submit'>参加予定</p>
             {% else %}
                 <p>
                     <form id="participateForm" method="POST" action="/event/{{event.id}}/participate/">
