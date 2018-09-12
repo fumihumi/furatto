@@ -2,6 +2,7 @@
 
 namespace Model\Dao;
 
+use Doctrine\DBAL\Query\QueryBuilder;
 /**
  * Class User
  *
@@ -16,5 +17,21 @@ namespace Model\Dao;
 class User extends Dao
 {
 
+  // userIdのArrayからユーザのArrayを返却する
+    public function getUsersByIds($ids)
+    {
+        $queryBuilder = new QueryBuilder($this->db);
+
+        $queryBuilder
+            ->select('*')
+            ->andWhere("id in"."(".implode(',', array_column($ids, 'user_id')).")")
+            ->from($this->_table_name);
+
+        $query = $queryBuilder->execute();
+
+        $result = $query->FetchALL();
+
+        return $result;
+    }
 
 }

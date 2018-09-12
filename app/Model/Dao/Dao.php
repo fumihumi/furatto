@@ -31,7 +31,7 @@ abstract class Dao
      * @var string _table_name 子クラスのテーブル名を格納します
      */
 
-    private $_table_name;
+    protected $_table_name;
 
     /**
      * Dao constructor.
