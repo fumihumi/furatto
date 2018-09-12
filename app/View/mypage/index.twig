@@ -58,11 +58,22 @@
             　  　  <li>Qiita ID：{{user.qiita_id}}</li>
                 {% endif %}
 
+                <p>参加イベント</p>
+                {% for event in events %}
+                  <li>
+                    <a href="/event/{{event.id}}">
+                      {{event.title}}
+                    </a>
+                  </li>
+                {% endfor %}
+
               </ul>
             </div>
         </div>
       </div>
   </div>
+<!-- <a href="/mypage/edit/">ユーザー情報の編集</a> -->
+
 </div>
 
 
